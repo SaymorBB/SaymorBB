@@ -292,12 +292,8 @@ footer{border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 9
   <section class="page" id="about" aria-label="About">
     <div class="hero">
       <div>
-        <p class="eyebrow">Hello, I'm</p>
-        <h1>Saymor Blue D. Balbalin</h1>
         <p class="type" aria-live="polite"><span id="typed"></span><i class="cur" aria-hidden="true"></i></p>
         <p class="lead">I am a first-year IT student at the University of the Cordilleras. My goal is share basic security practices to protect our information.</p>
-        <button class="more-btn" id="moreBtn" type="button" aria-expanded="false" aria-controls="more">More about me</button>
-        <p id="more" hidden>I enjoy turning an idea into a working product, from the first sketch to the final result. What motivates me most is making things that are clear and easy for people to use, and I am building my skills step by step through my coursework and hands-on practice.</p>
       </div>
       <aside class="facts" aria-label="Quick facts">
         <div class="fact wide"><dl><dt>Goal</dt><dd>Full-stack developer</dd></dl></div>
@@ -317,7 +313,7 @@ footer{border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 9
         <span class="step mono">01</span>
         <article class="entry">
           <h3>Elementary</h3>
-          <div class="meta"><span class="mono">2014 – 2020</span><span>Dusoc Elementary School</span></div>
+          <div class="meta"><span class="mono">2014 – 2020</span><span>Virac Elementary School</span></div>
           <p>Placed 1st in Sci-Damath (Grades 3 and 4) and 2nd in Sci-Damath (Grades 5 and 6).</p>
         </article>
       </li>
@@ -445,15 +441,6 @@ footer{border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 9
       if(c<=typingLine.length)setTimeout(go,50);
     })();
   }
-
-  /* More about me toggle */
-  var mb=document.getElementById('moreBtn'),m=document.getElementById('more');
-  mb.addEventListener('click',function(){
-    var opening=m.hidden;
-    m.hidden=!opening;
-    mb.setAttribute('aria-expanded',String(opening));
-    mb.textContent=opening?'Show less':'More about me';
-  });
 
   /* Render sections */
   document.getElementById('ach').innerHTML=achievements.map(function(a){
