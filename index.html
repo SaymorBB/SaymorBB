@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Saymor Blue D. Balbalin | Portfolio</title>
+<title>Saymor Blue D. Balbalin | Personal Portfolio</title>
 <meta name="description" content="Portfolio of Saymor Blue D. Balbalin, first-year BSIT student at the University of the Cordilleras aiming to become a full-stack developer.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
 
 /* ---------- Base ---------- */
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html{-webkit-text-size-adjust:100%;scroll-behavior:auto}
 body{
   min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;
   background:var(--bg);color:var(--ink);
@@ -159,24 +159,6 @@ main{flex:1;padding-block:clamp(2rem,6vh,4.5rem)}
 .fact dd{font-weight:600;font-size:1.02rem;line-height:1.3}
 .fact.wide dd{font-size:1.25rem}
 
-
-/* ---------- About (original site style) ---------- */
-.about-panel{position:relative}
-.about-label{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:1.4rem;max-width:none;
-}
-.about-label::before{content:"";width:18px;height:2px;background:var(--accent)}
-.about-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:start}
-.about-lead{font-weight:700;font-size:clamp(1.5rem,3.1vw,2.4rem);line-height:1.3;letter-spacing:-.03em;color:var(--ink);max-width:none}
-.about-body{font-size:1.08rem;line-height:1.7;color:var(--mute);display:grid;gap:1.2rem}
-.about-body p{max-width:none}
-.hl{color:var(--accent);text-decoration:none}
-a.hl{border-bottom:2px solid var(--accent);transition:opacity .15s}
-a.hl:hover{opacity:.8}
-@media (max-width:860px){.about-grid{grid-template-columns:1fr}}
-
 /* ---------- Education ---------- */
 .timeline{list-style:none;position:relative;display:grid;gap:1rem;max-width:820px}
 .timeline::before{content:"";position:absolute;left:21px;top:20px;bottom:20px;width:2px;background:var(--line)}
@@ -232,6 +214,19 @@ a.hl:hover{opacity:.8}
   border:1px solid var(--line);border-radius:999px;padding:.25rem .7rem;color:var(--mute);
 }
 
+
+/* ---------- Personal info and achievements content ---------- */
+.personal-education{margin-top:clamp(2.5rem,6vw,4rem)}
+.subsection-title{font-size:clamp(1.5rem,3vw,2rem);margin:0 0 .45rem}
+.section-note{color:var(--mute);margin-bottom:1rem}
+.achievement-group{margin-top:clamp(2rem,5vw,3rem)}
+.achievement-card{padding:0 0 1.3rem;overflow:hidden}
+.achievement-card img{width:100%;height:230px;object-fit:cover;display:block}
+.achievement-card .year,.achievement-card h3,.achievement-card p{margin-inline:1.25rem}
+.achievement-card .year{margin-top:.9rem}
+.achievement-card h3{font-size:1.3rem}
+.friends-group{margin-top:2.5rem}
+
 /* ---------- Footer pager ---------- */
 footer{border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent)}
 .pager{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.1rem}
@@ -261,6 +256,144 @@ footer{border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 9
   .timeline li{padding-left:3.2rem}
   .pager button{padding:.5em 1em}
 }
+
+/* ---------- Full-screen, no-scroll presentation ---------- */
+html,body{width:100%;height:100%;height:100dvh;overflow:hidden}
+body{min-height:0}
+header,footer{flex:0 0 auto}
+main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem);overflow:hidden}
+.page{height:100%;min-height:0;overflow:hidden}
+.page.on{display:flex;flex-direction:column}
+.page-title{margin-bottom:clamp(.55rem,1.4vh,1rem);font-size:clamp(1.8rem,3.8vw,2.8rem)}
+.eyebrow{margin-bottom:.35rem;font-size:.65rem}
+.wrap{width:min(1500px,100% - 2*clamp(12px,2.5vw,36px))}
+.home{min-height:0;flex:1}
+#personal-info .hero{flex:1;min-height:0;align-content:center}
+#personal-info .hero h1{font-size:clamp(2.2rem,5vw,4rem)}
+#personal-info .facts{align-content:center}
+.achievements-page{gap:clamp(.25rem,.7vh,.55rem)}
+.achievements-page > .eyebrow{flex:0 0 auto}
+.achievements-page > .page-title{flex:0 0 auto}
+.education-block{flex:0 0 43%;min-height:0;display:flex;flex-direction:column;gap:.35rem}
+.section-kicker{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.education-title{font-size:clamp(1.15rem,2vw,1.65rem);margin:0}
+.education-block .timeline{max-width:none;flex:1;min-height:0;grid-template-columns:repeat(4,minmax(0,1fr));gap:.55rem}
+.education-block .timeline::before{display:none}
+.education-block .timeline li{padding:0;min-width:0}
+.education-block .step{position:static;width:28px;height:28px;border-radius:9px;margin-bottom:.3rem}
+.education-block .entry{height:calc(100% - 32px);padding:.55rem .7rem;border-radius:12px}
+.education-block .entry h3{font-size:clamp(.85rem,1.3vw,1.05rem);margin-bottom:.2rem}
+.education-block .entry .meta{font-size:clamp(.62rem,.8vw,.75rem);gap:.15rem .4rem;margin-bottom:.25rem;line-height:1.25}
+.education-block .entry p{font-size:clamp(.62rem,.82vw,.76rem);line-height:1.3}
+.achievement-groups{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:.7rem}
+.achievement-group{margin:0;min-width:0;min-height:0;display:flex;flex-direction:column;gap:.25rem}
+.achievement-group .subsection-title{font-size:clamp(1rem,1.65vw,1.35rem);margin:0}
+.achievement-group .section-note{font-size:clamp(.62rem,.8vw,.75rem);line-height:1.2;margin:0;min-height:2em}
+.achievement-grid{flex:1;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:.45rem}
+.achievement-card{min-height:0;padding:0 0 .4rem;gap:.15rem;border-radius:12px}
+.achievement-card img{height:clamp(62px,10vh,105px);flex:0 0 auto;object-fit:cover}
+.achievement-card .year,.achievement-card h3,.achievement-card p{margin-inline:.55rem}
+.achievement-card .year{font-size:.58rem;margin-top:.3rem}
+.achievement-card h3{font-size:clamp(.7rem,1vw,.88rem);line-height:1.1}
+.achievement-card p{font-size:clamp(.58rem,.75vw,.7rem);line-height:1.2}
+.achievement-group:last-child .achievement-grid{grid-template-columns:1fr}
+#family-friends{gap:.5rem}
+#family-friends > section{min-height:0}
+#family-friends .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+#family-friends .friends-group{margin-top:.4rem}
+#family-friends .person{padding:.65rem;gap:.25rem}
+#family-friends .person .mark{width:2rem;height:2rem;margin:0;font-size:.8rem}
+#family-friends .person .name{font-size:.9rem}
+#family-friends .person .role{font-size:.6rem}
+.pager{padding-block:.55rem}
+.pager button{padding:.4em 1em;font-size:.82rem}
+#count{font-size:.72rem}
+@media(max-width:760px){
+  .bar{flex-direction:row;align-items:center}
+  .brand{font-size:.82rem}
+  .tabs-nav button{font-size:.75rem;padding:.35rem .6rem}
+  .achievements-page{gap:.2rem}
+  .education-block{flex-basis:39%}
+  .education-block .timeline{gap:.25rem}
+  .education-block .entry{padding:.35rem}
+  .education-block .entry p{font-size:.58rem}
+  .achievement-groups{gap:.3rem}
+  .achievement-card img{height:7vh}
+  .achievement-card p{display:none}
+}
+@media(max-width:520px){
+  .bar{flex-direction:column;gap:.35rem;padding-block:.35rem}
+  .brand{justify-content:center}
+  main{padding-block:.35rem}
+  .page-title{font-size:1.55rem}
+  .education-block{flex-basis:43%}
+  .education-block .timeline{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}
+  .education-block .entry{height:calc(100% - 25px)}
+  .education-block .step{width:22px;height:22px;font-size:.6rem}
+  .achievement-groups{grid-template-columns:repeat(3,minmax(0,1fr));gap:.25rem}
+  .achievement-group .section-note{display:none}
+  .achievement-grid{grid-template-columns:1fr}
+  .achievement-card img{height:6vh}
+  .achievement-card h3{font-size:.62rem}
+  #family-friends .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pager{padding-block:.25rem}
+}
+
+
+/* ---------- Achievement layout: arrangement follows the reference site ---------- */
+.achievements-page{gap:clamp(.25rem,.7vh,.55rem)}
+.achievements-page>.eyebrow,.achievements-page>.page-title{flex:0 0 auto}
+.achievements-page>.page-title{font-size:clamp(1.5rem,2.2vw,2rem);margin-bottom:.25rem}
+.education-block{flex:0 0 auto;min-height:0;display:flex;flex-direction:column;gap:.45rem}
+.education-heading,.gallery-label{display:flex;align-items:center;gap:.7rem}
+.education-heading h3{font-size:clamp(.9rem,1.15vw,1.2rem);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.education-heading>span,.gallery-label i{height:1px;background:var(--line);flex:1}
+.education-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem}
+.education-card{min-width:0;padding:.55rem .7rem;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;background:var(--surface)}
+.education-card h4{font-size:clamp(.72rem,.9vw,.95rem);line-height:1.2;margin-bottom:.25rem}
+.education-card p{font-size:clamp(.6rem,.72vw,.76rem);line-height:1.25;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:none;margin-bottom:.3rem}
+.education-card>span{font-family:var(--mono);font-size:clamp(.58rem,.67vw,.7rem);color:var(--accent)}
+.achievement-workspace{flex:1;min-height:0;display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr);gap:clamp(.8rem,1.5vw,1.5rem);padding-top:.25rem}
+.achievement-sidebar{display:flex;flex-direction:column;justify-content:center;gap:.45rem;min-height:0}
+.achievement-tab{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:.25rem;width:100%;padding:.7rem .8rem;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s}
+.achievement-tab strong{font-size:clamp(.75rem,.9vw,.95rem)}
+.achievement-tab span{font-size:clamp(.62rem,.75vw,.78rem);line-height:1.4;color:var(--mute)}
+.achievement-tab.active{border-color:var(--accent);border-left:4px solid var(--accent);padding-left:calc(.8rem - 3px);background:var(--accent-soft)}
+.achievement-gallery{min-width:0;min-height:0;display:flex;flex-direction:column}
+.gallery-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:.55rem}
+.gallery-heading h3{font-size:clamp(1.05rem,1.35vw,1.4rem);margin-bottom:.3rem}
+.gallery-heading p{font-size:clamp(.68rem,.82vw,.86rem);color:var(--mute)}
+.zoom-hint{font-size:.68rem;color:var(--mute);border:1px solid var(--line);border-radius:99px;padding:.25rem .6rem;white-space:nowrap}
+.gallery-label{margin-bottom:.45rem}
+.gallery-label span{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:.55rem .65rem;min-height:0;overflow:hidden;align-content:start}
+.gallery-item{min-width:0;min-height:0;display:flex;flex-direction:column;gap:.15rem}
+.gallery-photo{width:100%;height:clamp(95px,20vh,175px);display:grid;place-items:center;overflow:hidden;border:1px solid var(--line);border-radius:13px;background:var(--surface);padding:.3rem;cursor:zoom-in}
+.gallery-photo img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
+.gallery-date{font-family:var(--mono);font-size:clamp(.56rem,.64vw,.66rem);color:var(--accent);line-height:1.2}
+.gallery-item p{font-size:clamp(.58rem,.7vw,.73rem);line-height:1.2;color:var(--mute);max-width:none}
+.photo-lightbox{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.94);display:grid;place-items:center;padding:4vh 4vw}
+.photo-lightbox img{max-width:92vw;max-height:90vh;object-fit:contain;border-radius:8px}
+.lightbox-close{position:absolute;top:18px;right:24px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:50%;width:42px;height:42px;font-size:28px;cursor:pointer}
+@media(max-width:760px){
+  .achievement-workspace{grid-template-columns:125px minmax(0,1fr);gap:.5rem}
+  .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gallery-photo{height:clamp(75px,15vh,125px)}
+  .achievement-tab{padding:.55rem}
+  .achievement-tab.active{padding-left:calc(.55rem - 3px)}
+}
+@media(max-width:520px){
+  .education-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:.3rem}
+  .education-card{padding:.4rem}
+  .achievement-workspace{grid-template-columns:95px minmax(0,1fr);gap:.35rem}
+  .achievement-tab strong{font-size:.65rem}
+  .achievement-tab span{font-size:.55rem}
+  .gallery-heading{align-items:flex-start}
+  .zoom-hint{display:none}
+  .gallery-grid{grid-template-columns:1fr;overflow-y:auto}
+  .gallery-photo{height:clamp(70px,13vh,100px)}
+}
+
 </style>
 </head>
 <body>
@@ -271,11 +404,9 @@ footer{border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 9
     <nav aria-label="Sections">
       <div class="tabs-nav" id="top">
         <button type="button" data-n="0">Home</button>
-        <button type="button" data-n="1">About</button>
-        <button type="button" data-n="2">Education</button>
-        <button type="button" data-n="3">Achievements</button>
-        <button type="button" data-n="4">Family</button>
-        <button type="button" data-n="5">Projects</button>
+        <button type="button" data-n="1">Personal Info</button>
+        <button type="button" data-n="2">Achievements</button>
+        <button type="button" data-n="3">Family and Friends</button>
       </div>
     </nav>
   </div>
@@ -302,88 +433,108 @@ footer{border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 9
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12 12 0 0 0 12 .3z"/></svg>
           GitHub
         </a>
-        <a href="mailto:saymorbalbalin6@gmail.com" aria-label="Email">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5L12 11.7 19.8 6H4.2zM20 7.9l-7.4 5.4a1 1 0 0 1-1.2 0L4 7.9V18h16V7.9z"/></svg>
-          Gmail
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- 1 · ABOUT -->
-  <section class="page" id="about" aria-label="About">
-    <div class="about-panel">
-      <p class="about-label">Personal Info</p>
-      <div class="about-grid">
-        <p class="about-lead">Hi, I&rsquo;m Saymor Blue, born on June 5, 2008. I&rsquo;m a <span class="hl">first-year IT student</span> at the University of the Cordilleras, aspiring to become a <span class="hl">cybersecurity analyst</span> who protects systems and data from evolving threats. My goal is to share <span class="hl">basic security practices</span> to protect our information.</p>
-        <div class="about-body">
-          <p>I&rsquo;m taking a BSIT degree and building a foundation in <span class="hl">programming and software development</span>. I finished senior high school in the HUMSS strand at Sacred Heart High School of Itogon Inc.</p>
-          <p>Outside the classroom, I placed first in <span class="hl">Sci-Damath</span> competitions in elementary, and I won the district basketball meet (5x5), where I was also named to the <span class="hl">Mythical Five</span>.</p>
-          <p>I live along Atok Trail in Baguio City. If you want to get in touch, email me at <a class="hl" href="mailto:saymorbalbalin6@gmail.com">saymorbalbalin6@gmail.com</a>.</p>
-        </div>
+  <!-- 1 · PERSONAL INFO -->
+  <section class="page" id="personal-info" aria-label="Personal Info">
+    <div class="hero">
+      <div>
+        <p class="type" aria-live="polite"><span id="typed"></span><i class="cur" aria-hidden="true"></i></p>
+        <p class="lead">I am a first-year IT student at the University of the Cordilleras. My goal is share basic security practices to protect our information.</p>
       </div>
+      <aside class="facts" aria-label="Quick facts">
+        <div class="fact wide"><dl><dt>Goal</dt><dd>Full-stack developer</dd></dl></div>
+        <div class="fact"><dl><dt>Program</dt><dd>BSIT, University of the Cordilleras</dd></dl></div>
+        <div class="fact"><dl><dt>Year level</dt><dd>First year (2026 – Present)</dd></dl></div>
+        <div class="fact wide"><dl><dt>Focus</dt><dd>Solid code, clean design, end-to-end delivery</dd></dl></div>
+      </aside>
     </div>
+
   </section>
 
-  <!-- 2 · EDUCATION -->
-  <section class="page" id="education" aria-label="Education">
-    <p class="eyebrow">Journey so far</p>
-    <h2 class="page-title">Educational Attainment</h2>
-    <ol class="timeline">
-      <li>
-        <span class="step mono">01</span>
-        <article class="entry">
-          <h3>Elementary</h3>
-          <div class="meta"><span class="mono">2014 – 2020</span><span>Virac Elementary School</span></div>
-          <p>Placed 1st in Sci-Damath (Grades 3 and 4) and 2nd in Sci-Damath (Grades 5 and 6).</p>
-        </article>
-      </li>
-      <li>
-        <span class="step mono">02</span>
-        <article class="entry">
-          <h3>Junior High</h3>
-          <div class="meta"><span class="mono">2020 – 2024</span><span>Sacred Heart High School of Itogon Inc. – Junior High School</span></div>
-          <p>Completed junior high school. <span class="todo">[Add honors or notes]</span></p>
-        </article>
-      </li>
-      <li>
-        <span class="step mono">03</span>
-        <article class="entry">
-          <h3>Senior High</h3>
-          <div class="meta"><span class="mono">2024 – 2026</span><span>Sacred Heart High School of Itogon Inc. – Senior High School</span></div>
-          <p>Completed senior high school, Humanities and Social Sciences (HUMSS) strand. <span class="todo">[Add honors or notes]</span></p>
-        </article>
-      </li>
-      <li class="now">
-        <span class="step mono">04</span>
-        <article class="entry">
-          <h3>College</h3>
-          <div class="meta"><span class="mono">2026 – Present</span><span>University of the Cordilleras, BSIT</span></div>
-          <p>First-year Bachelor of Science in Information Technology student, building a foundation in programming and software development.</p>
-        </article>
-      </li>
-    </ol>
-  </section>
-
-  <!-- 3 · ACHIEVEMENTS -->
-  <section class="page" id="achievements" aria-label="Achievements">
-    <p class="eyebrow">Recognition</p>
+  <!-- 2 · ACHIEVEMENTS -->
+  <section class="page achievements-page" id="achievements" aria-label="Achievements">
+    <p class="eyebrow">Recognition and experiences</p>
     <h2 class="page-title">Achievements</h2>
-    <div class="grid grid-3" id="ach"></div>
+
+    <section class="education-block" aria-label="Educational Attainment">
+      <div class="education-heading">
+        <h3>Educational Attainment</h3><span></span>
+      </div>
+      <div class="education-cards">
+        <article class="education-card">
+          <h4>College</h4>
+          <p>University of the Cordilleras · BSIT</p>
+          <span>2026 – Present</span>
+        </article>
+        <article class="education-card">
+          <h4>Senior High School</h4>
+          <p>Sacred Heart High School of Itogon Inc. · HUMSS</p>
+          <span>2024 – 2026</span>
+        </article>
+        <article class="education-card">
+          <h4>Junior High School</h4>
+          <p>Sacred Heart High School of Itogon Inc.</p>
+          <span>2020 – 2024</span>
+        </article>
+        <article class="education-card">
+          <h4>Elementary</h4>
+          <p>Virac Elementary School</p>
+          <span>2014 – 2020</span>
+        </article>
+      </div>
+    </section>
+
+    <div class="achievement-workspace">
+      <aside class="achievement-sidebar" aria-label="Achievement categories">
+        <button class="achievement-tab active" type="button" data-category="curricular" aria-pressed="true">
+          <strong>Curricular</strong><span>Academics, schools and graduations</span>
+        </button>
+        <button class="achievement-tab" type="button" data-category="cocurricular" aria-pressed="false">
+          <strong>Co-curricular</strong><span>School performances and events</span>
+        </button>
+        <button class="achievement-tab" type="button" data-category="extracurricular" aria-pressed="false">
+          <strong>Extra-curricular</strong><span>Service, clubs and sports</span>
+        </button>
+      </aside>
+
+      <section class="achievement-gallery" aria-live="polite">
+        <div class="gallery-heading">
+          <div>
+            <h3 id="gallery-title">Curricular</h3>
+            <p id="gallery-description">School milestones and academic journey.</p>
+          </div>
+          <span class="zoom-hint">Click any photo to zoom</span>
+        </div>
+        <div class="gallery-label"><span id="gallery-kicker">Academic milestones</span><i></i></div>
+        <div class="gallery-grid" id="achievement-gallery-grid">
+          <article class="gallery-item">
+            <button type="button" class="gallery-photo" data-full="junior-high-graduation.jpg" aria-label="Zoom Junior High Graduation photo">
+              <img src="junior-high-graduation.jpg" alt="Junior high school graduation" loading="lazy">
+            </button>
+            <span class="gallery-date">Junior High School</span>
+            <p>Junior High Graduation</p>
+          </article>
+          <article class="gallery-item">
+            <button type="button" class="gallery-photo" data-full="senior-high-graduation.jpg" aria-label="Zoom Senior High Graduation photo">
+              <img src="senior-high-graduation.jpg" alt="Senior high school graduation" loading="lazy">
+            </button>
+            <span class="gallery-date">Senior High School</span>
+            <p>Senior High Graduation</p>
+          </article>
+        </div>
+      </section>
+    </div>
   </section>
 
-  <!-- 4 · FAMILY -->
-  <section class="page" id="family" aria-label="Family">
-    <p class="eyebrow">The people behind me</p>
-    <h2 class="page-title">My Family</h2>
-    <div class="grid grid-4" id="fam"></div>
-  </section>
-
-  <!-- 5 · PROJECTS -->
-  <section class="page" id="projects" aria-label="Projects">
-    <p class="eyebrow">Selected work</p>
-    <h2 class="page-title">Projects</h2>
-    <div class="grid grid-3" id="proj"></div>
+  <!-- 3 · FAMILY AND FRIENDS -->
+  <section class="page" id="family-friends" aria-label="Family and Friends">
+    <p class="eyebrow">The people who make life meaningful</p>
+    <h2 class="page-title">Family and Friends</h2>
+    <section aria-labelledby="family-title"><h3 class="subsection-title" id="family-title">My Family</h3><div class="grid grid-4" id="fam"></div></section>
+    <section class="friends-group" aria-labelledby="friends-title"><h3 class="subsection-title" id="friends-title">My Friends</h3><div class="grid grid-4" id="friends"></div></section>
   </section>
 
 </main>
@@ -391,30 +542,89 @@ footer{border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 9
 <footer>
   <div class="wrap pager">
     <button type="button" id="prev" aria-label="Previous section">&larr; Previous</button>
-    <span id="count" aria-live="polite">1 / 6</span>
+    <span id="count" aria-live="polite">1 / 4</span>
     <button type="button" id="next" class="primary" aria-label="Next section">Next &rarr;</button>
   </div>
 </footer>
 
 <script>
 (function(){
+  var sets = {
+    curricular: {
+      title: 'Curricular',
+      description: 'School milestones and academic journey.',
+      kicker: 'Academic milestones',
+      items: [
+        {src:'junior-high-graduation.jpg', alt:'Junior high school graduation', date:'Junior High School', title:'Junior High Graduation'},
+        {src:'senior-high-graduation.jpg', alt:'Senior high school graduation', date:'Senior High School', title:'Senior High Graduation'}
+      ]
+    },
+    cocurricular: {
+      title: 'Co-curricular',
+      description: 'School sports, events, and activities beyond classroom lessons.',
+      kicker: 'School activities',
+      items: [
+        {src:'basketball-competition.jpg', alt:'Basketball game against another school', date:'Inter-School Competition', title:'Basketball Competition'},
+        {src:'intramurals-2025.jpg', alt:'Intramurals 2025 team photos', date:'2025', title:'Intramurals'}
+      ]
+    },
+    extracurricular: {
+      title: 'Extra-curricular',
+      description: 'Recognition and contributions outside regular academic work.',
+      kicker: 'School recognition',
+      items: [
+        {src:'school-service-award.jpg', alt:'School service award recognition', date:'School Recognition', title:'Service Awardee'}
+      ]
+    }
+  };
+  function renderCategory(key){
+    var data=sets[key];
+    document.getElementById('gallery-title').textContent=data.title;
+    document.getElementById('gallery-description').textContent=data.description;
+    document.getElementById('gallery-kicker').textContent=data.kicker;
+    document.getElementById('achievement-gallery-grid').innerHTML=data.items.map(function(item){
+      return '<article class="gallery-item"><button type="button" class="gallery-photo" data-full="'+item.src+'" aria-label="Zoom '+item.title+' photo"><img src="'+item.src+'" alt="'+item.alt+'" loading="lazy"></button><span class="gallery-date">'+item.date+'</span><p>'+item.title+'</p></article>';
+    }).join('');
+  }
+  document.querySelectorAll('.achievement-tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      document.querySelectorAll('.achievement-tab').forEach(function(other){
+        var active=other===tab;
+        other.classList.toggle('active',active);
+        other.setAttribute('aria-pressed',active?'true':'false');
+      });
+      renderCategory(tab.getAttribute('data-category'));
+    });
+  });
+  document.addEventListener('click',function(event){
+    var photo=event.target.closest('.gallery-photo');
+    if(!photo)return;
+    var overlay=document.createElement('div');
+    overlay.className='photo-lightbox';
+    var img=document.createElement('img');
+    img.src=photo.getAttribute('data-full');
+    img.alt=photo.querySelector('img').alt;
+    var close=document.createElement('button');
+    close.type='button'; close.className='lightbox-close'; close.textContent='×'; close.setAttribute('aria-label','Close photo');
+    overlay.append(close,img);
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click',function(e){if(e.target===overlay||e.target===close)overlay.remove();});
+  });
+})();
+(function(){
   /* ---------- Content (edit here) ---------- */
-  var achievements = [
-    { title: 'Sci-Damath Champion', year: 'Grades 2 & 6', note: 'First place in the Sci-Damath competition.', feature: true },
-    { title: 'Basketball District Meet 5x5', year: 'Grade 11 & 12', note: 'Champion plus Mythical five' }
-  ];
+  var typingLine = 'Aspiring to be a cybersecurity analyst who protects systems and data from evolving threats';
 
   var family = [
     { role: 'Mother', name: '[Add name]' },
     { role: 'Father', name: '[Add name]' },
-    { role: 'Sibling', name: '[Add name]' },
     { role: 'Sibling', name: '[Add name]' }
   ];
 
-  var projects = [
-    { title: 'Project title', year: '2026', desc: '[Describe what it does and the tools you used.]' },
-    { title: 'Project title', year: '2026', desc: '[Describe what it does and the tools you used.]' },
-    { title: 'Project title', year: '2026', desc: '[Describe what it does and the tools you used.]' }
+  var friends = [
+    { role: 'Friend', name: '[Add name]' },
+    { role: 'Friend', name: '[Add name]' },
+    { role: 'Friend', name: '[Add name]' }
   ];
   /* ----------------------------------------- */
 
@@ -436,8 +646,7 @@ footer{border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 9
     count.textContent=(i+1)+' / '+pages.length;
     prev.disabled=i===0;
     next.disabled=i===pages.length-1;
-    tabs[i].scrollIntoView({block:'nearest',inline:'center'});
-    window.scrollTo({top:0,behavior:'smooth'});
+    // Fixed viewport: section switching does not scroll the document.
   }
 
   tabs.forEach(function(t,k){t.addEventListener('click',function(){show(k)})});
@@ -449,20 +658,27 @@ footer{border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 9
     if(e.key==='ArrowLeft')show(i-1);
   });
 
-  /* Render sections */
-  document.getElementById('ach').innerHTML=achievements.map(function(a){
-    var cls='card'+(a.feature?' feature':'');
-    return '<article class="'+cls+'"><span class="year">'+esc(a.year)+'</span><h3>'+esc(a.title)+'</h3><p>'+esc(a.note)+'</p></article>';
-  }).join('');
+  /* Typing effect */
+  var typed=document.getElementById('typed');
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    typed.textContent=typingLine;
+  }else{
+    var c=0;
+    (function go(){
+      typed.textContent=typingLine.slice(0,c++);
+      if(c<=typingLine.length)setTimeout(go,50);
+    })();
+  }
 
-  document.getElementById('fam').innerHTML=family.map(function(f){
-    var mark=isPlaceholder(f.name)?'?':f.name.split(' ').map(function(w){return w[0]}).join('').slice(0,2);
-    return '<article class="card person"><span class="mark" aria-hidden="true">'+esc(mark)+'</span><span class="role">'+esc(f.role)+'</span><span class="name">'+txt(f.name)+'</span></article>';
-  }).join('');
-
-  document.getElementById('proj').innerHTML=projects.map(function(p){
-    return '<article class="card project"><span class="status">In progress</span><span class="year">'+esc(p.year)+'</span><h3>'+txt(p.title)+'</h3><p>'+txt(p.desc)+'</p></article>';
-  }).join('');
+  /* Render family and friends cards */
+  function renderPeople(targetId, people){
+    document.getElementById(targetId).innerHTML=people.map(function(person){
+      var mark=isPlaceholder(person.name)?'?':person.name.split(' ').map(function(w){return w[0]}).join('').slice(0,2);
+      return '<article class="card person"><span class="mark" aria-hidden="true">'+esc(mark)+'</span><span class="role">'+esc(person.role)+'</span><span class="name">'+txt(person.name)+'</span></article>';
+    }).join('');
+  }
+  renderPeople('fam', family);
+  renderPeople('friends', friends);
 
   /* Home feature: decrypting name + status + tilt */
   (function(){
