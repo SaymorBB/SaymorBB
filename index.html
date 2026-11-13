@@ -394,6 +394,14 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
   .gallery-photo{height:clamp(70px,13vh,100px)}
 }
 
+.about-avatar{margin:0 0 1.4rem;width:clamp(120px,18vw,170px)}
+.about-label{font-family:var(--mono);font-size:.98rem;color:var(--accent);margin:0 0 .3rem}
+.info-card{align-self:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(1.1rem,3vw,1.6rem)}
+.info-title{font-family:var(--mono);font-weight:600;color:var(--ink);margin-bottom:1rem}
+.info-list div{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:.8rem;padding:.6rem 0;border-bottom:1px dashed var(--line)}
+.info-list div:last-child{border-bottom:0}
+.info-list dt{font-family:var(--mono);color:var(--accent);font-size:.9rem}
+.info-list dd{font-weight:600}
 </style>
 </head>
 <body>
@@ -441,14 +449,23 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
   <section class="page" id="personal-info" aria-label="Personal Info">
     <div class="hero">
       <div>
+        <div class="avatar about-avatar">
+          <span class="initials" aria-hidden="true">SB</span>
+          <img src="profile.jpg" alt="Photo of Saymor Blue D. Balbalin" onerror="this.remove()">
+        </div>
+        <p class="about-label">About me</p>
         <p class="type" aria-live="polite"><span id="typed"></span><i class="cur" aria-hidden="true"></i></p>
-        <p class="lead">I am a first-year IT student at the University of the Cordilleras. My goal is share basic security practices to protect our information.</p>
+        <p class="lead">I am an Information Technology student at the University of the Cordilleras. My goal is to share basic security practices to protect our information.</p>
       </div>
-      <aside class="facts" aria-label="Quick facts">
-        <div class="fact wide"><dl><dt>Goal</dt><dd>Full-stack developer</dd></dl></div>
-        <div class="fact"><dl><dt>Program</dt><dd>BSIT, University of the Cordilleras</dd></dl></div>
-        <div class="fact"><dl><dt>Year level</dt><dd>First year (2026 – Present)</dd></dl></div>
-        <div class="fact wide"><dl><dt>Focus</dt><dd>Solid code, clean design, end-to-end delivery</dd></dl></div>
+      <aside class="info-card" aria-label="Personal info">
+        <p class="info-title">Personal Info</p>
+        <dl class="info-list">
+          <div><dt>name</dt><dd>Saymor Blue D. Balbalin</dd></div>
+          <div><dt>birthday</dt><dd>June 5, 2008</dd></div>
+          <div><dt>school</dt><dd>University of the Cordilleras</dd></div>
+          <div><dt>program</dt><dd>Information Technology</dd></div>
+          <div><dt>year</dt><dd>1st year</dd></div>
+        </dl>
       </aside>
     </div>
 
