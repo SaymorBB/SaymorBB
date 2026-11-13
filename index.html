@@ -353,7 +353,7 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
 .education-card h4{font-size:clamp(.72rem,.9vw,.95rem);line-height:1.2;margin-bottom:.25rem}
 .education-card p{font-size:clamp(.6rem,.72vw,.76rem);line-height:1.25;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:none;margin-bottom:.3rem}
 .education-card>span{font-family:var(--mono);font-size:clamp(.58rem,.67vw,.7rem);color:var(--accent)}
-.achievement-workspace{flex:1;min-height:0;display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr);gap:clamp(.8rem,1.5vw,1.5rem);padding-top:.25rem}
+.achievement-workspace{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(.8rem,1.5vw,1.5rem);padding-top:.25rem}
 .achievement-sidebar{display:flex;flex-direction:column;justify-content:center;gap:.45rem;min-height:0}
 .achievement-tab{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:.25rem;width:100%;padding:.7rem .8rem;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s}
 .achievement-tab strong{font-size:clamp(.75rem,.9vw,.95rem)}
@@ -363,7 +363,6 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
 .gallery-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:.55rem}
 .gallery-heading h3{font-size:clamp(1.05rem,1.35vw,1.4rem);margin-bottom:.3rem}
 .gallery-heading p{font-size:clamp(.68rem,.82vw,.86rem);color:var(--mute)}
-.zoom-hint{font-size:.68rem;color:var(--mute);border:1px solid var(--line);border-radius:99px;padding:.25rem .6rem;white-space:nowrap}
 .gallery-label{margin-bottom:.45rem}
 .gallery-label span{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:.55rem .65rem;min-height:0;overflow:hidden;align-content:start}
@@ -376,7 +375,7 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
 .photo-lightbox img{max-width:92vw;max-height:90vh;object-fit:contain;border-radius:8px}
 .lightbox-close{position:absolute;top:18px;right:24px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:50%;width:42px;height:42px;font-size:28px;cursor:pointer}
 @media(max-width:760px){
-  .achievement-workspace{grid-template-columns:125px minmax(0,1fr);gap:.5rem}
+  .achievement-workspace{grid-template-columns:minmax(0,1fr);gap:.5rem}
   .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .gallery-photo{height:clamp(75px,15vh,125px)}
   .achievement-tab{padding:.55rem}
@@ -385,11 +384,10 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
 @media(max-width:520px){
   .education-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:.3rem}
   .education-card{padding:.4rem}
-  .achievement-workspace{grid-template-columns:95px minmax(0,1fr);gap:.35rem}
+  .achievement-workspace{grid-template-columns:minmax(0,1fr);gap:.35rem}
   .achievement-tab strong{font-size:.65rem}
   .achievement-tab span{font-size:.55rem}
   .gallery-heading{align-items:flex-start}
-  .zoom-hint{display:none}
   .gallery-grid{grid-template-columns:1fr;overflow-y:auto}
   .gallery-photo{height:clamp(70px,13vh,100px)}
 }
@@ -505,27 +503,14 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
     </section>
 
     <div class="achievement-workspace">
-      <aside class="achievement-sidebar" aria-label="Achievement categories">
-        <button class="achievement-tab active" type="button" data-category="curricular" aria-pressed="true">
-          <strong>Curricular</strong><span>Academics, schools and graduations</span>
-        </button>
-        <button class="achievement-tab" type="button" data-category="cocurricular" aria-pressed="false">
-          <strong>Co-curricular</strong><span>School performances and events</span>
-        </button>
-        <button class="achievement-tab" type="button" data-category="extracurricular" aria-pressed="false">
-          <strong>Extra-curricular</strong><span>Service, clubs and sports</span>
-        </button>
-      </aside>
-
       <section class="achievement-gallery" aria-live="polite">
         <div class="gallery-heading">
           <div>
-            <h3 id="gallery-title">Curricular</h3>
-            <p id="gallery-description">School milestones and academic journey.</p>
+            <h3 id="gallery-title">Achievements</h3>
+            <p id="gallery-description">Curricular, co-curricular and extra-curricular highlights.</p>
           </div>
-          <span class="zoom-hint">Click any photo to zoom</span>
         </div>
-        <div class="gallery-label"><span id="gallery-kicker">Academic milestones</span><i></i></div>
+        <div class="gallery-label"><span id="gallery-kicker">All achievements</span><i></i></div>
         <div class="gallery-grid" id="achievement-gallery-grid">
           <article class="gallery-item">
             <button type="button" class="gallery-photo" data-full="junior-high-graduation.jpg" aria-label="Zoom Junior High Graduation photo">
@@ -594,25 +579,13 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
       ]
     }
   };
-  function renderCategory(key){
-    var data=sets[key];
-    document.getElementById('gallery-title').textContent=data.title;
-    document.getElementById('gallery-description').textContent=data.description;
-    document.getElementById('gallery-kicker').textContent=data.kicker;
-    document.getElementById('achievement-gallery-grid').innerHTML=data.items.map(function(item){
+  function renderAll(){
+    var items=[].concat(sets.curricular.items,sets.cocurricular.items,sets.extracurricular.items);
+    document.getElementById('achievement-gallery-grid').innerHTML=items.map(function(item){
       return '<article class="gallery-item"><button type="button" class="gallery-photo" data-full="'+item.src+'" aria-label="Zoom '+item.title+' photo"><img src="'+item.src+'" alt="'+item.alt+'" loading="lazy"></button><span class="gallery-date">'+item.date+'</span><p>'+item.title+'</p></article>';
     }).join('');
   }
-  document.querySelectorAll('.achievement-tab').forEach(function(tab){
-    tab.addEventListener('click',function(){
-      document.querySelectorAll('.achievement-tab').forEach(function(other){
-        var active=other===tab;
-        other.classList.toggle('active',active);
-        other.setAttribute('aria-pressed',active?'true':'false');
-      });
-      renderCategory(tab.getAttribute('data-category'));
-    });
-  });
+  renderAll();
   document.addEventListener('click',function(event){
     var photo=event.target.closest('.gallery-photo');
     if(!photo)return;
