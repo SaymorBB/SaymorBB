@@ -390,6 +390,14 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
   .gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:.3rem}
 }
 
+/* ---------- Family and Friends: 4 photos, one screen, no scroll, nothing cropped ---------- */
+#family-friends>.eyebrow,#family-friends>.page-title{flex:0 0 auto}
+#family-friends>.page-title{font-size:clamp(1.5rem,2.2vw,2rem);margin-bottom:.25rem}
+.fam-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:.55rem .8rem;overflow:hidden}
+.fam-item .gallery-date{font-size:clamp(.62rem,.8vw,.8rem)}
+.fam-item p{font-size:clamp(.7rem,.95vw,.95rem);line-height:1.25}
+@media(max-width:760px){.fam-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem}}
+
 .about-avatar{margin:0 0 1.4rem;width:clamp(120px,18vw,170px)}
 .about-label{font-family:var(--mono);font-size:.98rem;color:var(--accent);margin:0 0 .3rem}
 .info-card{align-self:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(1.1rem,3vw,1.6rem)}
@@ -533,8 +541,43 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
   <section class="page" id="family-friends" aria-label="Family and Friends">
     <p class="eyebrow">The people who make life meaningful</p>
     <h2 class="page-title">Family and Friends</h2>
-    <section aria-labelledby="family-title"><h3 class="subsection-title" id="family-title">My Family</h3><div class="grid grid-4" id="fam"></div></section>
-    <section class="friends-group" aria-labelledby="friends-title"><h3 class="subsection-title" id="friends-title">My Friends</h3><div class="grid grid-4" id="friends"></div></section>
+    <div class="fam-grid">
+      <article class="gallery-item fam-item">
+        <button type="button" class="gallery-photo" data-full="dad-handshake.jpg" aria-label="Zoom handshake with Dad photo">
+          <img src="dad-handshake.jpg" alt="Handshake with Dad">
+        </button>
+        <span class="gallery-date">Dad</span>
+        <p>A proud handshake with my dad.</p>
+      </article>
+      <article class="gallery-item fam-item">
+        <button type="button" class="gallery-photo" data-full="mom-hug.jpg" aria-label="Zoom hugging Mom photo">
+          <img src="mom-hug.jpg" alt="Hugging Mom">
+        </button>
+        <span class="gallery-date">Mom</span>
+        <p>A warm hug with my mom.</p>
+      </article>
+      <article class="gallery-item fam-item">
+        <button type="button" class="gallery-photo" data-full="sibling.jpg" aria-label="Zoom picture with sibling photo">
+          <img src="sibling.jpg" alt="Picture with my sibling">
+        </button>
+        <span class="gallery-date">Sibling</span>
+        <p>Posing together with my sibling.</p>
+      </article>
+      <article class="gallery-item fam-item">
+        <button type="button" class="gallery-photo" data-full="friends.jpg" aria-label="Zoom picture with friends photo">
+          <img src="friends.jpg" alt="Picture with friends">
+        </button>
+        <span class="gallery-date">Friends</span>
+        <p>A group shot with my friends.</p>
+      </article>
+      <article class="gallery-item fam-item">
+        <button type="button" class="gallery-photo" data-full="friends-2.jpg" aria-label="Zoom another picture with friends photo">
+          <img src="friends-2.jpg" alt="Another picture with friends">
+        </button>
+        <span class="gallery-date">Friends</span>
+        <p>Another fun moment with my friends.</p>
+      </article>
+    </div>
   </section>
 
 </main>
@@ -659,14 +702,6 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
   }
 
   /* Render family and friends cards */
-  function renderPeople(targetId, people){
-    document.getElementById(targetId).innerHTML=people.map(function(person){
-      var mark=isPlaceholder(person.name)?'?':person.name.split(' ').map(function(w){return w[0]}).join('').slice(0,2);
-      return '<article class="card person"><span class="mark" aria-hidden="true">'+esc(mark)+'</span><span class="role">'+esc(person.role)+'</span><span class="name">'+txt(person.name)+'</span></article>';
-    }).join('');
-  }
-  renderPeople('fam', family);
-  renderPeople('friends', friends);
 
   /* Home feature: decrypting name + status + tilt */
   (function(){
