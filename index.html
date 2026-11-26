@@ -393,10 +393,10 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
 /* ---------- Family and Friends: 4 photos, one screen, no scroll, nothing cropped ---------- */
 #family-friends>.eyebrow,#family-friends>.page-title{flex:0 0 auto}
 #family-friends>.page-title{font-size:clamp(1.5rem,2.2vw,2rem);margin-bottom:.25rem}
-.fam-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:.55rem .8rem;overflow:hidden}
+.fam-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:.55rem .8rem;overflow:hidden}
 .fam-item .gallery-date{font-size:clamp(.62rem,.8vw,.8rem)}
 .fam-item p{font-size:clamp(.7rem,.95vw,.95rem);line-height:1.25}
-@media(max-width:760px){.fam-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem}}
+@media(max-width:760px){.fam-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem}}
 
 .about-avatar{margin:0 0 1.4rem;width:clamp(120px,18vw,170px)}
 .about-label{font-family:var(--mono);font-size:.98rem;color:var(--accent);margin:0 0 .3rem}
@@ -616,13 +616,6 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
         <p>Posing together with my sibling.</p>
       </article>
       <article class="gallery-item fam-item">
-        <button type="button" class="gallery-photo" data-full="friends.jpeg" aria-label="Zoom picture with friends photo">
-          <img src="friends.jpeg" alt="Picture with friends">
-        </button>
-        <span class="gallery-date">Friends</span>
-        <p>A group shot with my friends.</p>
-      </article>
-      <article class="gallery-item fam-item">
         <button type="button" class="gallery-photo" data-full="friends-2.jpeg" aria-label="Zoom another picture with friends photo">
           <img src="friends-2.jpeg" alt="Another picture with friends">
         </button>
@@ -637,7 +630,7 @@ main{flex:1 1 auto;min-height:0;height:0;padding-block:clamp(.65rem,1.8vh,1.2rem
 <footer>
   <div class="wrap pager">
     <button type="button" id="prev" aria-label="Previous section">&larr; Previous</button>
-    <span id="count" aria-live="polite">1 / 4</span>
+    <span id="count" aria-live="polite">1 / 3</span>
     <button type="button" id="next" class="primary" aria-label="Next section">Next &rarr;</button>
   </div>
 </footer>
