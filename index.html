@@ -2,454 +2,460 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Saymor Blue D. Balbalin | Personal Portfolio</title>
-<meta name="description" content="Portfolio of Saymor Blue D. Balbalin, first-year BSIT student at the University of the Cordilleras aiming to become a full-stack developer.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saymor Blue D. Balbalin | Portfolio</title>
+<meta name="description" content="Portfolio of Saymor Blue D. Balbalin, first-year BSIT student at the University of the Cordilleras aiming for a career in cybersecurity.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ---------- Tokens ---------- */
 :root{
-  --bg:#0b0d10;
-  --surface:#13171c;
-  --surface-2:#1a1f26;
-  --line:#252c35;
-  --ink:#eef1f4;
-  --mute:#8b96a3;
-  --accent:#c6f432;
-  --accent-ink:#0b0d10;
-  --accent-soft:#c6f43218;
-  --warm:#ff7a59;
-  --radius:18px;
-  --sans:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --bg:#070d1a;
+  --panel:#0c1628;
+  --panel-2:#101e35;
+  --line:#1c2c47;
+  --line-2:#26395c;
+  --ink:#e8eefb;
+  --mute:#8193b0;
+  --accent:#4d8dff;
+  --accent-2:#8fc2ff;
+  --accent-ink:#06101f;
+  --accent-soft:rgba(77,141,255,.14);
+  --accent-line:rgba(77,141,255,.38);
+  --r:16px;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
   color-scheme:dark;
 }
 
 /* ---------- Base ---------- */
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{
-  width:100%;height:100%;height:100dvh;
-  overflow:hidden;overscroll-behavior:none;
-}
+html,body{height:100%}
 body{
-  display:flex;flex-direction:column;
-  background:var(--bg);color:var(--ink);
-  font:400 1rem/1.6 var(--sans);
-  background-image:radial-gradient(circle at 85% -10%,#c6f43214,transparent 40%);
-  background-attachment:fixed;
+  font:400 1rem/1.6 var(--sans);color:var(--ink);
+  background:
+    radial-gradient(60% 50% at 85% 0%,rgba(77,141,255,.22),transparent 70%),
+    linear-gradient(rgba(77,141,255,.06) 1px,transparent 1px) 0 0/56px 56px,
+    linear-gradient(90deg,rgba(77,141,255,.06) 1px,transparent 1px) 0 0/56px 56px,
+    var(--bg);
+  height:100dvh;display:flex;flex-direction:column;overflow:hidden;
 }
-h1,h2,h3{font-weight:700;line-height:1.05;letter-spacing:-.025em}
+body::before{
+  content:"";position:fixed;right:-18vw;top:-24vh;width:72vw;height:72vw;border-radius:50%;
+  border:1px solid rgba(77,141,255,.16);
+  box-shadow:0 0 0 70px rgba(77,141,255,.025),0 0 0 140px rgba(77,141,255,.015);
+  pointer-events:none;
+}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.03em;line-height:1.05}
 p{max-width:64ch}
 button{font:inherit;color:inherit}
-button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
-.wrap{width:min(1500px,100% - 2*clamp(12px,2.5vw,36px));margin-inline:auto}
-.mono{font-family:var(--mono);font-size:.82em;letter-spacing:.02em}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px;border-radius:8px}
 
 /* ---------- Header ---------- */
-header{
-  flex:0 0 auto;position:relative;z-index:10;
-  background:color-mix(in srgb,var(--bg) 85%,transparent);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+.top{
+  display:flex;align-items:center;gap:1.2rem;flex:0 0 auto;
+  padding:.75rem clamp(1rem,3vw,2.5rem);
   border-bottom:1px solid var(--line);
+  background:rgba(7,13,26,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  position:relative;z-index:5;
 }
-.bar{display:flex;align-items:center;gap:1rem;padding-block:.5rem}
-.brand{
-  display:flex;align-items:center;gap:.6rem;
-  font-weight:700;font-size:1rem;white-space:nowrap;color:var(--ink);text-decoration:none;
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;font-weight:700;white-space:nowrap}
+.mark{
+  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));color:var(--accent-ink);
+  font:600 .8rem var(--mono);
 }
-.brand .logo{
-  width:30px;height:30px;border-radius:9px;background:var(--accent);color:var(--accent-ink);
-  display:grid;place-items:center;font-family:var(--mono);font-size:.8rem;font-weight:600;
+.tabs{
+  margin-inline:auto;display:flex;gap:.3rem;
+  background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:.3rem;
 }
-.back-home{
-  font:600 .8rem/1 var(--sans);color:var(--accent);background:var(--accent-soft);
-  border:1px solid #c6f43240;border-radius:999px;padding:.5rem .9rem;cursor:pointer;
-  white-space:nowrap;transition:border-color .15s;
+.tabs button{
+  background:none;border:0;border-radius:999px;padding:.5rem 1.1rem;cursor:pointer;
+  font:600 .9rem var(--sans);color:var(--mute);white-space:nowrap;transition:background .2s,color .2s;
 }
-.back-home:hover{border-color:var(--accent)}
-.back-home[hidden]{display:none}
-nav{margin-left:auto;min-width:0}
-.tabs-nav{
-  display:flex;gap:.35rem;overflow-x:auto;scrollbar-width:none;
-  background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.3rem;
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-current="page"]{background:var(--accent);color:#fff}
+.chip{
+  font:500 .72rem var(--mono);color:var(--accent-2);letter-spacing:.04em;
+  border:1px solid var(--accent-line);background:var(--accent-soft);
+  border-radius:999px;padding:.4rem .8rem;white-space:nowrap;
 }
-.tabs-nav::-webkit-scrollbar{display:none}
-.tabs-nav button{
-  background:none;border:0;border-radius:999px;padding:.45rem .95rem;
-  font-weight:500;font-size:.9rem;color:var(--mute);white-space:nowrap;cursor:pointer;
-  transition:background .2s,color .2s;
-}
-.tabs-nav button:hover{color:var(--ink)}
-.tabs-nav button[aria-current="page"]{background:var(--accent);color:var(--accent-ink);font-weight:600}
-.tabs-nav button[hidden]{display:none}
 
-/* ---------- Main and pages (fixed viewport, no scroll) ---------- */
-main{
-  flex:1 1 auto;min-height:0;overflow:hidden;
-  padding-block:clamp(.65rem,1.8vh,1.2rem);
+/* ---------- Pages ---------- */
+main{flex:1 1 auto;min-height:0;position:relative}
+.page{
+  display:none;height:100%;overflow:auto;
+  padding:clamp(1.2rem,3.5vh,2.5rem) clamp(1.2rem,4vw,3.5rem);
 }
-.page{display:none;height:100%;min-height:0;overflow:hidden}
-.page.on{display:flex;flex-direction:column;animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.page.on{animation:none}.cur{animation:none}.status-chip i{animation:none}.tilt .avatar{transition:none}}
+.page.on{display:flex;flex-direction:column;animation:fade .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .page.on,.cur{animation:none}
+  .shot button img{transition:none}
+}
 
 .eyebrow{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:.35rem;
+  display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;
+  font:500 .72rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);
 }
-.eyebrow::before{content:"";width:18px;height:2px;background:var(--accent)}
-.page-title{
-  font-size:clamp(1.5rem,2.2vw,2rem);margin-bottom:.25rem;flex:0 0 auto;
-}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--accent-2)}
+.title{font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:1.4rem;flex:0 0 auto}
+.label{font:500 .66rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
 
 /* ---------- Home ---------- */
-.home-split{
-  flex:1;min-height:0;display:grid;
-  grid-template-columns:auto minmax(0,1fr);
-  gap:clamp(1.5rem,4vw,3.5rem);align-items:center;text-align:left;
+.home{
+  flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);
+  gap:clamp(2rem,5vw,5rem);align-items:center;
 }
-.tilt{perspective:700px}
-.avatar{
-  width:clamp(160px,32vw,230px);aspect-ratio:1;border-radius:50%;overflow:hidden;position:relative;
-  background:var(--surface-2);border:3px solid var(--accent);box-shadow:0 0 0 8px var(--accent-soft);
-  display:grid;place-items:center;
+.home h1{font-size:clamp(2.6rem,5.6vw,5rem);letter-spacing:-.045em;line-height:.98;margin-bottom:1rem}
+.home h1 span{color:var(--accent)}
+.role{font-size:clamp(1rem,1.5vw,1.2rem);font-weight:600;color:var(--accent-2);max-width:36ch;margin-bottom:.9rem}
+.blurb{color:var(--mute);max-width:52ch;margin-bottom:1.6rem}
+.btns{display:flex;gap:.7rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;text-decoration:none;
+  font:600 .92rem var(--sans);color:var(--ink);
+  background:var(--panel);border:1px solid var(--line-2);border-radius:12px;padding:.75rem 1.2rem;
+  transition:border-color .2s,color .2s,background .2s;
 }
-.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.avatar .initials{font-family:var(--mono);font-weight:600;font-size:clamp(2.6rem,8vw,3.6rem);color:var(--accent)}
-.home-photo{
-  width:clamp(200px,26vw,320px);aspect-ratio:3 / 4;border-radius:var(--radius);
-}
-.tilt .avatar{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s ease-out;will-change:transform}
-.tilt .avatar::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(circle at var(--mx,50%) var(--my,30%),#c6f43238,transparent 55%);
-}
-.home-copy{display:flex;flex-direction:column;align-items:flex-start;gap:1.1rem;min-width:0}
-.home-copy h1{font-size:clamp(2.2rem,5vw,4rem);letter-spacing:-.035em;cursor:pointer;font-variant-ligatures:none}
-.home-tagline{font-family:var(--mono);font-size:.95rem;color:var(--accent)}
-.status-chip{
-  display:inline-flex;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border:1px solid #c6f43240;
-  border-radius:999px;padding:.4rem .9rem;
-}
-.status-chip i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 #c6f43299;animation:ping 1.8s infinite}
-@keyframes ping{70%{box-shadow:0 0 0 9px #c6f43200}100%{box-shadow:0 0 0 0 #c6f43200}}
-.socials{display:flex;gap:.8rem;flex-wrap:wrap}
-.socials a{
-  display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--ink);
-  background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.6em 1.25em;font-weight:600;
-  transition:border-color .15s,color .15s,transform .15s;
-}
-.socials a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-.socials svg{width:20px;height:20px;fill:currentColor}
+.btn:hover{border-color:var(--accent);color:var(--accent-2)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:#3b7cf0;color:#fff}
+.btn:disabled{opacity:.35;cursor:default;border-color:var(--line-2);color:var(--ink)}
+.btn svg{width:18px;height:18px;fill:currentColor}
 
-/* ---------- Personal info ---------- */
-.hero{
-  flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
-  gap:clamp(1.2rem,3vw,2.5rem);align-items:center;
+.visual{position:relative;display:flex;justify-content:center}
+.portrait{
+  position:relative;width:min(100%,380px);aspect-ratio:4/5;border-radius:24px;overflow:hidden;
+  background:var(--panel-2);border:1px solid var(--accent-line);
+  display:grid;place-items:center;box-shadow:0 30px 80px -30px rgba(77,141,255,.5);
 }
-.about-avatar{margin:0 0 1rem;width:clamp(110px,15vw,160px)}
-.about-label{font-family:var(--mono);font-size:.95rem;color:var(--accent);margin:0 0 .3rem}
-.type{font-family:var(--mono);font-size:.95rem;color:var(--accent);min-height:1.6em;margin-bottom:.9rem}
-.cur{display:inline-block;width:.5ch;height:1.05em;background:var(--warm);vertical-align:-.15em;margin-left:3px;animation:blink 1s steps(1) infinite}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.initials{font:600 clamp(3rem,7vw,4.5rem) var(--mono);color:var(--accent)}
+.float{
+  position:absolute;background:rgba(12,22,40,.92);border:1px solid var(--line-2);
+  border-radius:14px;padding:.7rem .95rem;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.float b{display:block;font-size:1.05rem}
+.float.a{left:-2%;top:14%}
+.float.b{right:-2%;bottom:12%}
+
+/* ---------- Personal Info ---------- */
+.info{display:grid;grid-template-columns:minmax(0,330px) minmax(0,1fr);gap:1.3rem;flex:1;align-items:start}
+.profile{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  padding:1.5rem;display:flex;flex-direction:column;gap:1rem;
+}
+.avatar-sm{
+  width:120px;height:120px;border-radius:50%;overflow:hidden;position:relative;
+  border:2px solid var(--accent);box-shadow:0 0 0 6px var(--accent-soft);
+  display:grid;place-items:center;background:var(--panel-2);
+}
+.avatar-sm img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.type{font:500 .95rem var(--mono);color:var(--accent-2);min-height:1.6em}
+.cur{display:inline-block;width:.5ch;height:1em;background:var(--accent);margin-left:2px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.lead{font-size:clamp(.95rem,1.4vw,1.1rem);color:var(--ink);opacity:.9}
-.info-card{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-  padding:clamp(.9rem,2vw,1.3rem);overflow:hidden;max-height:100%;
+.lead{color:var(--ink);opacity:.85}
+.groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.group{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.15rem}
+.group h3{
+  display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem;
+  font:600 .72rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2);
 }
-.info-title{font-family:var(--mono);font-weight:600;color:var(--ink);margin-bottom:.5rem}
-.info-list div{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:.8rem;padding:.3rem 0;border-bottom:1px dashed var(--line)}
-.info-list div:last-child{border-bottom:0}
-.info-list dt{font-family:var(--mono);color:var(--accent);font-size:.85rem}
-.info-list dd{font-weight:600;font-size:.9rem}
+.group h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1rem}
+.kv dt{font:500 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.kv dd{font-weight:700;font-size:.95rem;margin-top:.15rem}
+.wide{grid-column:1/-1}
 
 /* ---------- Achievements ---------- */
-.achievements-page{gap:clamp(.25rem,.7vh,.55rem)}
-.education-block{flex:0 0 auto;display:flex;flex-direction:column;gap:.45rem}
-.education-heading,.gallery-label{display:flex;align-items:center;gap:.7rem}
-.education-heading h3{font-size:clamp(.9rem,1.15vw,1.2rem);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
-.education-heading>span,.gallery-label i{height:1px;background:var(--line);flex:1}
-.education-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem}
-.education-card{min-width:0;padding:.55rem .7rem;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;background:var(--surface)}
-.education-card h4{font-size:clamp(.72rem,.9vw,.95rem);line-height:1.2;margin-bottom:.25rem}
-.education-card p{font-size:clamp(.6rem,.72vw,.76rem);line-height:1.25;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:none;margin-bottom:.3rem}
-.education-card>span{font-family:var(--mono);font-size:clamp(.58rem,.67vw,.7rem);color:var(--accent)}
-.achievement-workspace{flex:1;min-height:0;display:flex;flex-direction:column}
-.achievement-gallery{min-width:0;min-height:0;flex:1;display:flex;flex-direction:column;overflow:hidden}
-.gallery-heading{margin-bottom:.3rem}
-.gallery-heading h3{font-size:clamp(1.05rem,1.35vw,1.4rem);margin-bottom:.2rem}
-.gallery-heading p{font-size:clamp(.68rem,.82vw,.86rem);color:var(--mute)}
-.gallery-label{margin-bottom:.45rem}
-.gallery-label span{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
-.gallery-grid{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);
-  gap:.55rem .65rem;min-height:0;flex:1;overflow:hidden;
-}
-.gallery-item{min-width:0;min-height:0;display:flex;flex-direction:column;gap:.15rem}
-.gallery-photo{
-  position:relative;display:block;width:100%;flex:1 1 0;min-height:0;overflow:hidden;
-  border:1px solid var(--line);border-radius:13px;background:var(--surface);padding:0;cursor:zoom-in;
-}
-.gallery-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;background:var(--surface)}
-.gallery-date{flex:0 0 auto;font-family:var(--mono);font-size:clamp(.56rem,.64vw,.66rem);color:var(--accent);line-height:1.2}
-.gallery-item p{flex:0 0 auto;font-size:clamp(.58rem,.7vw,.73rem);line-height:1.2;color:var(--mute);max-width:none}
+.timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.2rem;margin-bottom:1.8rem}
+.step{position:relative;padding-top:1.3rem;min-width:0}
+.step::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--line))}
+.step::after{content:"";position:absolute;top:-4px;left:0;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.step .yr{font:500 .75rem var(--mono);color:var(--accent-2)}
+.step h4{font-size:1.02rem;margin:.35rem 0 .25rem}
+.step p{color:var(--mute);font-size:.86rem;line-height:1.4}
 
-/* ---------- Family and Friends ---------- */
-.fam-grid{
-  flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-  grid-auto-rows:minmax(0,1fr);gap:.55rem .8rem;overflow:hidden;
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.shot{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  padding:.6rem;display:flex;flex-direction:column;gap:.6rem;min-width:0;
+  transition:border-color .2s;
 }
-.fam-item .gallery-date{font-size:clamp(.62rem,.8vw,.8rem)}
-.fam-item p{font-size:clamp(.7rem,.95vw,.95rem);line-height:1.25}
+.shot:hover{border-color:var(--accent-line)}
+.shot button{
+  position:relative;display:block;width:100%;aspect-ratio:4/3;border:0;padding:0;
+  border-radius:12px;overflow:hidden;background:var(--panel-2);cursor:zoom-in;
+}
+.shot.tall button{aspect-ratio:3/4}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.shot button:hover img{transform:scale(1.04)}
+.cap{padding:0 .35rem .35rem}
+.cap b{display:block;font-size:.98rem}
+.cap span{font:500 .66rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-2)}
+.cap p{font-size:.84rem;color:var(--mute);margin-top:.2rem;line-height:1.35}
+.cap .who{display:block;font:700 .95rem var(--sans);color:var(--ink);margin-top:.45rem}
+
+/* ---------- Family ---------- */
+.family-intro{display:flex;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:1.3rem;flex-wrap:wrap}
+.family-intro p{color:var(--mute);max-width:44ch}
+.family-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+
+/* ---------- Footer ---------- */
+footer{
+  flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.7rem clamp(1rem,3vw,2.5rem);border-top:1px solid var(--line);
+  background:rgba(7,13,26,.88);
+}
+#count{font:500 .75rem var(--mono);color:var(--mute);letter-spacing:.06em}
 
 /* ---------- Lightbox ---------- */
-.photo-lightbox{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.94);display:grid;place-items:center;padding:4vh 4vw}
-.photo-lightbox img{max-width:92vw;max-height:90vh;object-fit:contain;border-radius:8px}
-.lightbox-close{position:absolute;top:18px;right:24px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:50%;width:42px;height:42px;font-size:28px;cursor:pointer}
-
-/* ---------- Footer pager ---------- */
-footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent)}
-.pager{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.55rem}
-.pager button{
-  font-weight:600;font-size:.82rem;cursor:pointer;background:transparent;color:var(--ink);
-  border:1px solid var(--line);border-radius:999px;padding:.4em 1em;transition:border-color .15s,color .15s,background .15s;
+.lb{
+  position:fixed;inset:0;z-index:100;background:rgba(3,7,15,.93);
+  display:grid;place-items:center;padding:4vh 4vw;
 }
-.pager button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.pager button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.pager button.primary:hover:not(:disabled){color:var(--accent-ink);opacity:.9}
-.pager button:disabled{opacity:.3;cursor:default}
-#count{font-family:var(--mono);font-size:.72rem;color:var(--mute)}
+.lb img{max-width:92vw;max-height:88vh;object-fit:contain;border-radius:12px;border:1px solid var(--line-2)}
+.lb-close{
+  position:absolute;top:18px;right:24px;width:42px;height:42px;border-radius:50%;cursor:pointer;
+  border:1px solid var(--line-2);background:var(--panel);color:var(--ink);font-size:1.5rem;line-height:1;
+}
 
 /* ---------- Responsive ---------- */
-@media (max-width:860px){
-  .hero{grid-template-columns:1fr;align-content:center}
-  .info-card{max-height:none}
+@media (max-width:1100px){
+  .home{grid-template-columns:minmax(0,1fr) minmax(0,.9fr)}
+  .info{grid-template-columns:1fr}
+  .gallery,.family-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .timeline{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:1.6rem}
 }
 @media (max-width:760px){
-  .bar{gap:.5rem}
-  .brand{font-size:.82rem}
-  .back-home{font-size:.7rem;padding:.4rem .6rem}
-  .tabs-nav button{font-size:.75rem;padding:.35rem .6rem}
-  .education-cards{gap:.3rem}
-  .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem}
-  .fam-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem}
-  .home-split{grid-template-columns:1fr;justify-items:center;text-align:center;align-content:center}
-  .home-photo{width:clamp(140px,40vw,220px)}
-  .home-copy{align-items:center}
-  .home-copy .socials{justify-content:center}
-  .info-list div{grid-template-columns:5.5rem minmax(0,1fr)}
+  .top{flex-wrap:wrap;gap:.7rem}
+  .tabs{order:3;width:100%;margin-inline:0;overflow-x:auto;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tabs button{font-size:.8rem;padding:.45rem .75rem}
+  .chip{display:none}
+  .home{grid-template-columns:1fr;text-align:left}
+  .visual{display:none}
+  .groups{grid-template-columns:1fr}
+  .kv{grid-template-columns:1fr 1fr}
+  .float{display:none}
 }
-@media (max-width:520px){
-  .bar{flex-direction:column;align-items:stretch;gap:.35rem;padding-block:.35rem}
-  nav{margin-left:0;width:100%}
-  .tabs-nav{width:100%}
-  .brand{justify-content:center}
-  .back-home{align-self:center}
-  main{padding-block:.35rem}
-  .page-title{font-size:1.4rem}
-  .education-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .education-card p{display:none}
-  .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .gallery-item p{display:none}
-  .gallery-date{font-size:.55rem}
-  .fam-item p{display:none}
-  .pager{padding-block:.25rem}
-  .pager button{padding:.35em .8em}
+@media (max-width:460px){
+  .timeline,.gallery,.family-grid{grid-template-columns:1fr}
+  .kv{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="#home"><span class="logo" aria-hidden="true">SB</span>Saymor Blue D. Balbalin</a>
-    <button type="button" class="back-home" id="backHome" hidden>&larr; Back to Home</button>
-    <nav aria-label="Sections">
-      <div class="tabs-nav" id="top">
-        <button type="button" data-n="0" hidden>Home</button>
-        <button type="button" data-n="1">Personal Info</button>
-        <button type="button" data-n="2">Achievements</button>
-        <button type="button" data-n="3">Family and Friends</button>
-      </div>
-    </nav>
-  </div>
+<header class="top">
+  <a class="brand" href="#home"><span class="mark" aria-hidden="true">SB</span>Saymor Blue D. Balbalin</a>
+  <nav aria-label="Sections">
+    <div class="tabs" id="tabs">
+      <button type="button" data-n="0">Home</button>
+      <button type="button" data-n="1">Personal Info</button>
+      <button type="button" data-n="2">Achievements</button>
+      <button type="button" data-n="3">Family &amp; Friends</button>
+    </div>
+  </nav>
+  <span class="chip">BSIT · 1st Year</span>
 </header>
 
-<main class="wrap">
+<main>
 
   <!-- 0 · HOME -->
   <section class="page on" id="home" aria-label="Home">
-    <div class="home-split">
-      <div class="tilt" id="tilt">
-        <div class="avatar home-photo">
-          <span class="initials" aria-hidden="true">SB</span>
-          <img src="profile.jpg" alt="Photo of Saymor Blue D. Balbalin" onerror="this.remove()">
-        </div>
-      </div>
-
-      <div class="home-copy">
-        <span class="status-chip"><i aria-hidden="true"></i><span id="statusTxt">Secure connection established</span></span>
-        <h1 id="homeName" aria-label="Saymor Blue D. Balbalin">Saymor Blue D. Balbalin</h1>
-        <p class="home-tagline">Aspiring to be a cybersecurity analyst who protects systems and data from evolving threats</p>
-        <div class="socials">
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
-            Facebook
-          </a>
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+    <div class="home">
+      <div>
+        <p class="eyebrow">Hello, I'm</p>
+        <h1>Saymor Blue <span>D. Balbalin</span></h1>
+        <p class="role">Aspiring cybersecurity analyst who protects systems and data from evolving threats.</p>
+        <p class="blurb">First-year BSIT student at the University of the Cordilleras. I want to share basic security practices that help people keep their information safe.</p>
+        <div class="btns">
+          <button type="button" class="btn primary" data-go="1">About me &rarr;</button>
+          <a class="btn" href="https://github.com/" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12 12 0 0 0 12 .3z"/></svg>
             GitHub
           </a>
+          <a class="btn" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.890v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+            Facebook
+          </a>
         </div>
+      </div>
+
+      <div class="visual">
+        <div class="portrait">
+          <span class="initials" aria-hidden="true">SB</span>
+          <img src="profile.jpg" alt="Photo of Saymor Blue D. Balbalin" onerror="this.remove()">
+        </div>
+        <div class="float a"><span class="label">Program</span><b>BSIT</b></div>
+        <div class="float b"><span class="label">Year level</span><b>1st Year</b></div>
       </div>
     </div>
   </section>
 
   <!-- 1 · PERSONAL INFO -->
   <section class="page" id="personal-info" aria-label="Personal Info">
-    <div class="hero">
-      <div>
-        <div class="avatar about-avatar">
+    <div class="info">
+      <aside class="profile">
+        <div class="avatar-sm">
           <span class="initials" aria-hidden="true">SB</span>
           <img src="profile.jpg" alt="Photo of Saymor Blue D. Balbalin" onerror="this.remove()">
         </div>
-        <p class="about-label">About me</p>
-        <p class="type" aria-live="polite"><span id="typed"></span><i class="cur" aria-hidden="true"></i></p>
+        <div>
+          <p class="label" style="margin-bottom:.35rem">About me</p>
+          <p class="type" aria-live="polite"><span id="typed"></span><i class="cur" aria-hidden="true"></i></p>
+        </div>
         <p class="lead">I am an Information Technology student at the University of the Cordilleras. My goal is to share basic security practices to protect our information.</p>
-      </div>
-      <aside class="info-card" aria-label="Personal info">
-        <p class="info-title">Personal Info</p>
-        <dl class="info-list">
-          <div><dt>name</dt><dd>Saymor Blue D. Balbalin</dd></div>
-          <div><dt>birthday</dt><dd>June 5, 2008</dd></div>
-          <div><dt>school</dt><dd>University of the Cordilleras</dd></div>
-          <div><dt>program</dt><dd>Information Technology</dd></div>
-          <div><dt>year</dt><dd>1st year</dd></div>
-          <div><dt>blood type</dt><dd>O+</dd></div>
-          <div><dt>eye color</dt><dd>Black</dd></div>
-          <div><dt>height</dt><dd>157.54 cm</dd></div>
-          <div><dt>weight</dt><dd>87 kg</dd></div>
-          <div><dt>shoe size</dt><dd>11</dd></div>
-          <div><dt>zodiac sign</dt><dd>Gemini</dd></div>
-          <div><dt>birthplace</dt><dd>Baguio City</dd></div>
-          <div><dt>hometown</dt><dd>Itogon, Benguet</dd></div>
-          <div><dt>nationality</dt><dd>Filipino</dd></div>
-          <div><dt>religion</dt><dd>Roman Catholic</dd></div>
-        </dl>
       </aside>
+
+      <div class="groups">
+        <div class="group">
+          <h3>Basics</h3>
+          <dl class="kv">
+            <div><dt>Name</dt><dd>Saymor Blue D. Balbalin</dd></div>
+            <div><dt>Birthday</dt><dd>June 5, 2008</dd></div>
+            <div><dt>Nationality</dt><dd>Filipino</dd></div>
+            <div><dt>Religion</dt><dd>Roman Catholic</dd></div>
+            <div class="wide"><dt>Zodiac sign</dt><dd>Gemini</dd></div>
+          </dl>
+        </div>
+        <div class="group">
+          <h3>School</h3>
+          <dl class="kv">
+            <div class="wide"><dt>School</dt><dd>University of the Cordilleras</dd></div>
+            <div><dt>Program</dt><dd>Information Technology</dd></div>
+            <div><dt>Year</dt><dd>1st year</dd></div>
+          </dl>
+        </div>
+        <div class="group">
+          <h3>Physical</h3>
+          <dl class="kv">
+            <div><dt>Blood type</dt><dd>O+</dd></div>
+            <div><dt>Eye color</dt><dd>Black</dd></div>
+            <div><dt>Height</dt><dd>157.54 cm</dd></div>
+            <div><dt>Weight</dt><dd>87 kg</dd></div>
+            <div class="wide"><dt>Shoe size</dt><dd>11</dd></div>
+          </dl>
+        </div>
+        <div class="group">
+          <h3>Origin</h3>
+          <dl class="kv">
+            <div><dt>Birthplace</dt><dd>Baguio City</dd></div>
+            <div><dt>Hometown</dt><dd>Itogon, Benguet</dd></div>
+          </dl>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- 2 · ACHIEVEMENTS -->
-  <section class="page achievements-page" id="achievements" aria-label="Achievements">
+  <section class="page" id="achievements" aria-label="Achievements">
     <p class="eyebrow">Recognition and experiences</p>
-    <h2 class="page-title">Achievements</h2>
+    <h2 class="title">Achievements</h2>
 
-    <section class="education-block" aria-label="Educational Attainment">
-      <div class="education-heading">
-        <h3>Educational Attainment</h3><span></span>
-      </div>
-      <div class="education-cards">
-        <article class="education-card">
-          <h4>College</h4>
-          <p>University of the Cordilleras · BSIT</p>
-          <span>2026 – Present</span>
-        </article>
-        <article class="education-card">
-          <h4>Senior High School</h4>
-          <p>Sacred Heart High School of Itogon Inc. · HUMSS</p>
-          <span>2024 – 2026</span>
-        </article>
-        <article class="education-card">
-          <h4>Junior High School</h4>
-          <p>Sacred Heart High School of Itogon Inc.</p>
-          <span>2020 – 2024</span>
-        </article>
-        <article class="education-card">
-          <h4>Elementary</h4>
-          <p>Virac Elementary School</p>
-          <span>2014 – 2020</span>
-        </article>
-      </div>
-    </section>
+    <div class="timeline" aria-label="Educational attainment">
+      <article class="step">
+        <span class="yr">2026 – Present</span>
+        <h4>College</h4>
+        <p>University of the Cordilleras · BSIT</p>
+      </article>
+      <article class="step">
+        <span class="yr">2024 – 2026</span>
+        <h4>Senior High School</h4>
+        <p>Sacred Heart High School of Itogon Inc. · HUMSS</p>
+      </article>
+      <article class="step">
+        <span class="yr">2020 – 2024</span>
+        <h4>Junior High School</h4>
+        <p>Sacred Heart High School of Itogon Inc.</p>
+      </article>
+      <article class="step">
+        <span class="yr">2014 – 2020</span>
+        <h4>Elementary</h4>
+        <p>Virac Elementary School</p>
+      </article>
+    </div>
 
-    <div class="achievement-workspace">
-      <section class="achievement-gallery" aria-live="polite">
-        <div class="gallery-heading">
-          <h3 id="gallery-title">Achievements</h3>
-          <p id="gallery-description">Curricular, co-curricular and extra-curricular highlights.</p>
-        </div>
-        <div class="gallery-label"><span id="gallery-kicker">All achievements</span><i></i></div>
-        <div class="gallery-grid" id="achievement-gallery-grid">
-          <article class="gallery-item">
-            <button type="button" class="gallery-photo" data-full="junior-high-graduation.jpg" aria-label="Zoom Junior High Graduation photo">
-              <img src="junior-high-graduation.jpg" alt="Junior high school graduation" loading="lazy">
-            </button>
-            <span class="gallery-date">Junior High School</span>
-            <p>Junior High Graduation</p>
-          </article>
-          <article class="gallery-item">
-            <button type="button" class="gallery-photo" data-full="senior-high-graduation.jpg" aria-label="Zoom Senior High Graduation photo">
-              <img src="senior-high-graduation.jpg" alt="Senior high school graduation" loading="lazy">
-            </button>
-            <span class="gallery-date">Senior High School</span>
-            <p>Senior High Graduation</p>
-          </article>
-          <article class="gallery-item">
-            <button type="button" class="gallery-photo" data-full="basketball-competition.jpg" aria-label="Zoom Basketball Competition photo">
-              <img src="basketball-competition.jpg" alt="Basketball game against another school" loading="lazy">
-            </button>
-            <span class="gallery-date">Inter-School Competition</span>
-            <p>Basketball Competition</p>
-          </article>
-          <article class="gallery-item">
-            <button type="button" class="gallery-photo" data-full="intramurals-2025.jpg" aria-label="Zoom Intramurals photo">
-              <img src="intramurals-2025.jpg" alt="Intramurals 2025 team photos" loading="lazy">
-            </button>
-            <span class="gallery-date">2025</span>
-            <p>Intramurals</p>
-          </article>
-        </div>
-      </section>
+    <div class="gallery">
+      <article class="shot">
+        <button type="button" data-full="junior-high-graduation.jpg" aria-label="Zoom Junior High Graduation photo">
+          <img src="junior-high-graduation.jpg" alt="Junior high school graduation" loading="lazy">
+        </button>
+        <div class="cap"><span>Junior High School</span><b>Junior High Graduation</b></div>
+      </article>
+      <article class="shot">
+        <button type="button" data-full="senior-high-graduation.jpg" aria-label="Zoom Senior High Graduation photo">
+          <img src="senior-high-graduation.jpg" alt="Senior high school graduation" loading="lazy">
+        </button>
+        <div class="cap"><span>Senior High School</span><b>Senior High Graduation</b></div>
+      </article>
+      <article class="shot">
+        <button type="button" data-full="basketball-competition.jpg" aria-label="Zoom Basketball Competition photo">
+          <img src="basketball-competition.jpg" alt="Basketball game against another school" loading="lazy">
+        </button>
+        <div class="cap"><span>Inter-School Competition</span><b>Basketball Competition</b></div>
+      </article>
+      <article class="shot">
+        <button type="button" data-full="intramurals-2025.jpg" aria-label="Zoom Intramurals photo">
+          <img src="intramurals-2025.jpg" alt="Intramurals 2025 team photos" loading="lazy">
+        </button>
+        <div class="cap"><span>2025</span><b>Intramurals</b></div>
+      </article>
     </div>
   </section>
 
   <!-- 3 · FAMILY AND FRIENDS -->
   <section class="page" id="family-friends" aria-label="Family and Friends">
-    <p class="eyebrow">The people who make life meaningful</p>
-    <h2 class="page-title">Family and Friends</h2>
-    <div class="fam-grid">
-      <article class="gallery-item fam-item">
-        <button type="button" class="gallery-photo" data-full="dad-handshake.jpeg" aria-label="Zoom handshake with Dad photo">
+    <div class="family-intro">
+      <div>
+        <p class="eyebrow">The people who make life meaningful</p>
+        <h2 class="title" style="margin-bottom:0">Family &amp; Friends</h2>
+      </div>
+    </div>
+
+    <div class="family-grid">
+      <article class="shot tall">
+        <button type="button" data-full="dad-handshake.jpeg" aria-label="Zoom handshake with Dad photo">
           <img src="dad-handshake.jpeg" alt="Handshake with Dad">
         </button>
-        <span class="gallery-date">Dad</span>
-        <p>A proud handshake with my dad.</p>
+        <div class="cap">
+          <span>Dad</span>
+          <p>A proud handshake with my dad.</p>
+          <b class="who">Jeffrey Balbalin</b>
+        </div>
       </article>
-      <article class="gallery-item fam-item">
-        <button type="button" class="gallery-photo" data-full="mom-hug.jpeg" aria-label="Zoom hugging Mom photo">
+      <article class="shot tall">
+        <button type="button" data-full="mom-hug.jpeg" aria-label="Zoom hugging Mom photo">
           <img src="mom-hug.jpeg" alt="Hugging Mom">
         </button>
-        <span class="gallery-date">Mom</span>
-        <p>A warm hug with my mom.</p>
+        <div class="cap">
+          <span>Mom</span>
+          <p>A warm hug with my mom.</p>
+          <b class="who">Maria Gemma Balbalin</b>
+        </div>
       </article>
-      <article class="gallery-item fam-item">
-        <button type="button" class="gallery-photo" data-full="sibling.jpeg" aria-label="Zoom picture with sibling photo">
+      <article class="shot tall">
+        <button type="button" data-full="sibling.jpeg" aria-label="Zoom picture with sibling photo">
           <img src="sibling.jpeg" alt="Picture with my sibling">
         </button>
-        <span class="gallery-date">Sibling</span>
-        <p>Posing together with my sibling.</p>
+        <div class="cap">
+          <span>Sibling</span>
+          <p>Posing together with my sibling.</p>
+        </div>
       </article>
-      <article class="gallery-item fam-item">
-        <button type="button" class="gallery-photo" data-full="friends-2.jpeg" aria-label="Zoom another picture with friends photo">
+      <article class="shot tall">
+        <button type="button" data-full="friends-2.jpeg" aria-label="Zoom another picture with friends photo">
           <img src="friends-2.jpeg" alt="Another picture with friends">
         </button>
-        <span class="gallery-date">Friends</span>
-        <p>Another fun moment with my friends.</p>
+        <div class="cap">
+          <span>Friends</span>
+          <p>Another fun moment with my friends.</p>
+          <b class="who">Johnloyd Tocdangan and Junne Paleng</b>
+        </div>
       </article>
     </div>
   </section>
@@ -457,39 +463,20 @@ footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in sr
 </main>
 
 <footer>
-  <div class="wrap pager">
-    <button type="button" id="prev" aria-label="Previous section">&larr; Previous</button>
-    <span id="count" aria-live="polite">1 / 4</span>
-    <button type="button" id="next" class="primary" aria-label="Next section">Next &rarr;</button>
-  </div>
+  <button type="button" class="btn" id="prev" aria-label="Previous section">&larr; Previous</button>
+  <span id="count" aria-live="polite">1 / 4</span>
+  <button type="button" class="btn primary" id="next" aria-label="Next section">Next &rarr;</button>
 </footer>
 
 <script>
 (function(){
-  /* ---------- Photo lightbox ---------- */
-  document.addEventListener('click',function(event){
-    var photo=event.target.closest('.gallery-photo');
-    if(!photo)return;
-    var overlay=document.createElement('div');
-    overlay.className='photo-lightbox';
-    var img=document.createElement('img');
-    img.src=photo.getAttribute('data-full');
-    img.alt=photo.querySelector('img').alt;
-    var close=document.createElement('button');
-    close.type='button';close.className='lightbox-close';close.textContent='×';close.setAttribute('aria-label','Close photo');
-    overlay.append(close,img);
-    document.body.appendChild(overlay);
-    overlay.addEventListener('click',function(e){if(e.target===overlay||e.target===close)overlay.remove();});
-  });
-
   /* ---------- Section navigation ---------- */
-  var pages=[].slice.call(document.querySelectorAll('.page')),
-      tabs=[].slice.call(document.querySelectorAll('#top button')),
-      prev=document.getElementById('prev'),
-      next=document.getElementById('next'),
-      count=document.getElementById('count'),
-      backHome=document.getElementById('backHome'),
-      i=0;
+  var pages=[].slice.call(document.querySelectorAll('.page'));
+  var tabs=[].slice.call(document.querySelectorAll('#tabs button'));
+  var prev=document.getElementById('prev');
+  var next=document.getElementById('next');
+  var count=document.getElementById('count');
+  var i=0;
 
   function show(n){
     i=Math.max(0,Math.min(pages.length-1,n));
@@ -498,88 +485,62 @@ footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in sr
     count.textContent=(i+1)+' / '+pages.length;
     prev.disabled=i===0;
     next.disabled=i===pages.length-1;
-    backHome.hidden=i===0;
+    if(i===1)startTyping();
   }
 
   tabs.forEach(function(t,k){t.addEventListener('click',function(){show(k)})});
   prev.addEventListener('click',function(){show(i-1)});
   next.addEventListener('click',function(){show(i+1)});
-  backHome.addEventListener('click',function(){show(0)});
+  document.querySelectorAll('[data-go]').forEach(function(b){
+    b.addEventListener('click',function(){show(parseInt(b.getAttribute('data-go'),10))});
+  });
   document.addEventListener('keydown',function(e){
     if(e.target.closest&&e.target.closest('input,textarea,select,[contenteditable]'))return;
     if(e.key==='ArrowRight')show(i+1);
     if(e.key==='ArrowLeft')show(i-1);
   });
 
-  /* ---------- Block scrolling (wheel, touch drag, arrow/page keys) ---------- */
-  ['wheel','touchmove'].forEach(function(ev){
-    document.addEventListener(ev,function(e){
-      if(!e.target.closest('.photo-lightbox'))e.preventDefault();
-    },{passive:false});
-  });
-  document.addEventListener('keydown',function(e){
-    if(['PageUp','PageDown','Home','End',' '].indexOf(e.key)>-1 && !e.target.closest('button,a,input,textarea,select'))e.preventDefault();
+  /* ---------- Lightbox ---------- */
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('.shot button');
+    if(!btn)return;
+    var overlay=document.createElement('div');
+    overlay.className='lb';
+    var img=document.createElement('img');
+    img.src=btn.getAttribute('data-full');
+    img.alt=btn.querySelector('img').alt;
+    var close=document.createElement('button');
+    close.type='button';
+    close.className='lb-close';
+    close.textContent='×';
+    close.setAttribute('aria-label','Close photo');
+    overlay.append(close,img);
+    document.body.appendChild(overlay);
+    close.focus();
+    function dismiss(){overlay.remove();document.removeEventListener('keydown',onKey)}
+    function onKey(ev){if(ev.key==='Escape')dismiss()}
+    overlay.addEventListener('click',function(ev){if(ev.target===overlay||ev.target===close)dismiss()});
+    document.addEventListener('keydown',onKey);
   });
 
   /* ---------- Typing effect ---------- */
-  var typingLine='Aspiring to be a cybersecurity analyst who protects systems and data from evolving threats';
+  var line='Aspiring cybersecurity analyst';
   var typed=document.getElementById('typed');
-  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
-    typed.textContent=typingLine;
-  }else{
+  var typing=false;
+  function startTyping(){
+    if(typing)return;
+    typing=true;
+    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+      typed.textContent=line;
+      return;
+    }
     var c=0;
+    typed.textContent='';
     (function go(){
-      typed.textContent=typingLine.slice(0,c++);
-      if(c<=typingLine.length)setTimeout(go,50);
+      typed.textContent=line.slice(0,c++);
+      if(c<=line.length)setTimeout(go,60);
     })();
   }
-
-  /* ---------- Home: decrypt name, status chip, tilt avatar ---------- */
-  (function(){
-    var el=document.getElementById('homeName'),
-        st=document.getElementById('statusTxt'),
-        tilt=document.getElementById('tilt'),
-        real=el.getAttribute('aria-label'),
-        glyphs='01<>/\\{}[]#$%&*+=?ABCDEFGHJKLMNPQRSTUVWXYZ',
-        reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches,
-        timer=null;
-
-    function decrypt(){
-      clearInterval(timer);
-      if(reduce){el.textContent=real;st.textContent='Secure connection established';return}
-      st.textContent='Decrypting identity…';
-      var f=0,total=real.length*2.2;
-      timer=setInterval(function(){
-        var reveal=Math.floor(f/2.2),out='';
-        for(var k=0;k<real.length;k++){
-          var ch=real[k];
-          out+=(k<reveal||ch===' '||ch==='.')?ch:glyphs[Math.floor(Math.random()*glyphs.length)];
-        }
-        el.textContent=out;
-        f++;
-        if(f>total){
-          clearInterval(timer);el.textContent=real;
-          st.textContent='Secure connection established';
-        }
-      },35);
-    }
-    el.addEventListener('mouseenter',decrypt);
-
-    if(!reduce){
-      var av=tilt.firstElementChild;
-      tilt.addEventListener('pointermove',function(e){
-        var r=tilt.getBoundingClientRect(),
-            x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
-        av.style.setProperty('--ry',((x-.5)*22)+'deg');
-        av.style.setProperty('--rx',((.5-y)*22)+'deg');
-        av.style.setProperty('--mx',(x*100)+'%');
-        av.style.setProperty('--my',(y*100)+'%');
-      });
-      tilt.addEventListener('pointerleave',function(){
-        av.style.setProperty('--rx','0deg');av.style.setProperty('--ry','0deg');
-      });
-    }
-  })();
 
   show(0);
 })();
