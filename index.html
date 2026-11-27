@@ -147,32 +147,31 @@ main{
 .socials svg{width:20px;height:20px;fill:currentColor}
 
 /* ---------- Personal info (screenshot order: header, two cards, tiles, motto) ---------- */
-.pi{gap:clamp(.8rem,2vh,1.2rem);overflow-y:auto}
+.pi{gap:clamp(.55rem,1.5vh,1rem);overflow:hidden}
 .card{
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-  padding:clamp(.9rem,2vw,1.3rem);
+  padding:clamp(.7rem,1.6vw,1.1rem);
 }
-.pi-header{display:flex;align-items:center;gap:clamp(1rem,2.5vw,1.8rem)}
-.pi-avatar{width:clamp(100px,12vw,132px);flex:0 0 auto;box-shadow:0 0 0 6px var(--accent-soft)}
-.pi-name{font-size:clamp(1.8rem,3.4vw,2.8rem);letter-spacing:-.03em;margin-bottom:.35rem}
-.pi-sub{font-family:var(--mono);font-size:.9rem;color:var(--accent);margin-bottom:.5rem}
-.type{font-family:var(--mono);font-size:.95rem;color:var(--accent);min-height:1.6em;margin-bottom:.5rem}
+.pi-header{display:flex;align-items:center;gap:clamp(.9rem,2vw,1.6rem)}
+.pi-avatar{width:clamp(80px,9vw,110px);flex:0 0 auto;box-shadow:0 0 0 6px var(--accent-soft)}
+.pi-name{font-size:clamp(1.5rem,2.8vw,2.3rem);letter-spacing:-.03em;margin-bottom:.25rem}
+.pi-sub{font-family:var(--mono);font-size:.85rem;color:var(--accent);margin-bottom:.3rem}
+.type{font-family:var(--mono);font-size:.9rem;color:var(--accent);min-height:1.5em;margin-bottom:.3rem}
 .cur{display:inline-block;width:.5ch;height:1.05em;background:var(--warm);vertical-align:-.15em;margin-left:3px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.lead{font-size:clamp(.9rem,1.2vw,1rem);color:var(--ink);opacity:.9;max-width:62ch}
-.pi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(.8rem,2vw,1.2rem)}
-.info-title{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.8rem}
-.kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1.2rem}
-.kv dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
-.kv dd{font-weight:600;font-size:.95rem;margin-top:.12rem}
+.pi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(.55rem,1.5vw,1rem)}
+.info-title{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
+.kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem 1rem}
+.kv dt{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.kv dd{font-weight:600;font-size:.9rem;margin-top:.08rem}
 .kv .wide{grid-column:1/-1}
-.pi-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.6rem,1.5vw,1rem)}
-.tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:.8rem 1rem}
-.tile span{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
-.tile b{display:block;font-size:.98rem;margin-top:.2rem}
-.motto{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:14px;padding:.8rem 1.1rem}
-.motto span{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
-.motto p{font-style:italic;font-size:1rem;margin-top:.25rem}
+.pi-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.5rem,1.2vw,.8rem)}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:.6rem .8rem}
+.tile span{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.tile b{display:block;font-size:.92rem;margin-top:.15rem}
+.motto{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:14px;padding:.6rem .9rem}
+.motto span{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.motto p{font-style:italic;font-size:.95rem;margin-top:.15rem}
 
 /* ---------- Achievements ---------- */
 .achievements-page{gap:clamp(.25rem,.7vh,.55rem)}
@@ -318,7 +317,6 @@ main{
         <h2 class="pi-name">Saymor Blue D. Balbalin</h2>
         <p class="pi-sub">BSIT · 1st Year</p>
         <p class="type" aria-live="polite"><span id="typed"></span><i class="cur" aria-hidden="true"></i></p>
-        <p class="lead">I am an Information Technology student at the University of the Cordilleras. My goal is to share basic security practices to protect our information.</p>
       </div>
     </div>
 
@@ -518,10 +516,10 @@ main{
     if(e.key==='ArrowLeft')show(i-1);
   });
 
-  /* ---------- Block scrolling (wheel, touch drag, arrow/page keys) ---------- */
+  /* ---------- Block scrolling on every page (wheel, touch drag, keys) ---------- */
   ['wheel','touchmove'].forEach(function(ev){
     document.addEventListener(ev,function(e){
-      if(!e.target.closest('.photo-lightbox,.pi'))e.preventDefault();
+      if(!e.target.closest('.photo-lightbox'))e.preventDefault();
     },{passive:false});
   });
   document.addEventListener('keydown',function(e){
