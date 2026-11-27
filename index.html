@@ -83,6 +83,7 @@ nav{margin-left:auto;min-width:0}
 }
 .tabs-nav button:hover{color:var(--ink)}
 .tabs-nav button[aria-current="page"]{background:var(--accent);color:var(--accent-ink);font-weight:600}
+.tabs-nav button[hidden]{display:none}
 
 /* ---------- Main and pages (fixed viewport, no scroll) ---------- */
 main{
@@ -259,9 +260,6 @@ footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in sr
   .pager{padding-block:.25rem}
   .pager button{padding:.35em .8em}
 }
-
-/* Hide the Home tab while on the Home page */
-.tabs-nav button[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -272,7 +270,7 @@ footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in sr
     <button type="button" class="back-home" id="backHome" hidden>&larr; Back to Home</button>
     <nav aria-label="Sections">
       <div class="tabs-nav" id="top">
-        <button type="button" data-n="0">Home</button>
+        <button type="button" data-n="0" hidden>Home</button>
         <button type="button" data-n="1">Personal Info</button>
         <button type="button" data-n="2">Achievements</button>
         <button type="button" data-n="3">Family and Friends</button>
@@ -487,7 +485,6 @@ footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in sr
     prev.disabled=i===0;
     next.disabled=i===pages.length-1;
     backHome.hidden=i===0;
-    tabs[0].hidden=i===0;
   }
 
   tabs.forEach(function(t,k){t.addEventListener('click',function(){show(k)})});
