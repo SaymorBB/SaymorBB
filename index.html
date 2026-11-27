@@ -146,7 +146,7 @@ main{
 .socials a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
 .socials svg{width:20px;height:20px;fill:currentColor}
 
-/* ---------- Personal info (screenshot order: header, two cards, tiles) ---------- */
+/* ---------- Personal info (screenshot order: header, two cards, tiles, motto) ---------- */
 .pi{gap:clamp(.8rem,2vh,1.2rem);overflow-y:auto}
 .card{
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
@@ -170,6 +170,9 @@ main{
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:.8rem 1rem}
 .tile span{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
 .tile b{display:block;font-size:.98rem;margin-top:.2rem}
+.motto{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:14px;padding:.8rem 1.1rem}
+.motto span{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.motto p{font-style:italic;font-size:1rem;margin-top:.25rem}
 
 /* ---------- Achievements ---------- */
 .achievements-page{gap:clamp(.25rem,.7vh,.55rem)}
@@ -216,19 +219,6 @@ main{
 .photo-lightbox img{max-width:92vw;max-height:90vh;object-fit:contain;border-radius:8px}
 .lightbox-close{position:absolute;top:18px;right:24px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:50%;width:42px;height:42px;font-size:28px;cursor:pointer}
 
-/* ---------- Footer pager ---------- */
-footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent)}
-.pager{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.55rem}
-.pager button{
-  font-weight:600;font-size:.82rem;cursor:pointer;background:transparent;color:var(--ink);
-  border:1px solid var(--line);border-radius:999px;padding:.4em 1em;transition:border-color .15s,color .15s,background .15s;
-}
-.pager button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.pager button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.pager button.primary:hover:not(:disabled){color:var(--accent-ink);opacity:.9}
-.pager button:disabled{opacity:.3;cursor:default}
-#count{font-family:var(--mono);font-size:.72rem;color:var(--mute)}
-
 /* ---------- Responsive ---------- */
 @media (max-width:860px){
   .pi-grid{grid-template-columns:1fr}
@@ -265,8 +255,6 @@ footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in sr
   .gallery-item p{display:none}
   .gallery-date{font-size:.55rem}
   .fam-item p{display:none}
-  .pager{padding-block:.25rem}
-  .pager button{padding:.35em .8em}
 }
 </style>
 </head>
@@ -309,7 +297,7 @@ footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in sr
             Facebook
           </a>
           <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.930 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12 12 0 0 0 12 .3z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12 12 0 0 0 12 .3z"/></svg>
             GitHub
           </a>
         </div>
@@ -340,14 +328,16 @@ footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in sr
         <h3 class="info-title">Personal</h3>
         <dl class="kv">
           <div><dt>Birthday</dt><dd>June 5, 2008</dd></div>
+          <div><dt>Age</dt><dd>18</dd></div>
           <div><dt>Zodiac sign</dt><dd>Gemini</dd></div>
           <div><dt>Birthplace</dt><dd>Baguio City</dd></div>
           <div><dt>Religion</dt><dd>Roman Catholic</dd></div>
+          <div><dt>Father</dt><dd>Jeffrey Balbalin</dd></div>
+          <div><dt>Mother</dt><dd>Maria Gemma Balbalin</dd></div>
           <div class="wide"><dt>School</dt><dd>University of the Cordilleras</dd></div>
         </dl>
       </div>
       <div class="card">
-        <h3 class="info-title">Physical</h3>
         <dl class="kv">
           <div><dt>Blood type</dt><dd>O+</dd></div>
           <div><dt>Eye color</dt><dd>Black</dd></div>
@@ -364,6 +354,12 @@ footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in sr
       <div class="tile"><span>Year level</span><b>1st Year</b></div>
       <div class="tile"><span>Hometown</span><b>Itogon, Benguet</b></div>
       <div class="tile"><span>Nationality</span><b>Filipino</b></div>
+    </div>
+
+    <!-- Motto -->
+    <div class="motto">
+      <span>My motto</span>
+      <p>"Do good and good will comeback to you"</p>
     </div>
   </section>
 
@@ -468,6 +464,7 @@ footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in sr
         </button>
         <span class="gallery-date">Sibling</span>
         <p>Posing together with my sibling.</p>
+        <b class="who">Maria Elizabeth Balbalin</b>
       </article>
       <article class="gallery-item fam-item">
         <button type="button" class="gallery-photo" data-full="friends-2.jpeg" aria-label="Zoom another picture with friends photo">
@@ -481,14 +478,6 @@ footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in sr
   </section>
 
 </main>
-
-<footer>
-  <div class="wrap pager">
-    <button type="button" id="prev" aria-label="Previous section">&larr; Previous</button>
-    <span id="count" aria-live="polite">1 / 4</span>
-    <button type="button" id="next" class="primary" aria-label="Next section">Next &rarr;</button>
-  </div>
-</footer>
 
 <script>
 (function(){
@@ -511,9 +500,6 @@ footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in sr
   /* ---------- Section navigation ---------- */
   var pages=[].slice.call(document.querySelectorAll('.page')),
       tabs=[].slice.call(document.querySelectorAll('#top button')),
-      prev=document.getElementById('prev'),
-      next=document.getElementById('next'),
-      count=document.getElementById('count'),
       backHome=document.getElementById('backHome'),
       i=0;
 
@@ -521,15 +507,10 @@ footer{flex:0 0 auto;border-top:1px solid var(--line);background:color-mix(in sr
     i=Math.max(0,Math.min(pages.length-1,n));
     pages.forEach(function(p,k){p.classList.toggle('on',k===i)});
     tabs.forEach(function(t,k){t.setAttribute('aria-current',k===i?'page':'false')});
-    count.textContent=(i+1)+' / '+pages.length;
-    prev.disabled=i===0;
-    next.disabled=i===pages.length-1;
     backHome.hidden=i===0;
   }
 
   tabs.forEach(function(t,k){t.addEventListener('click',function(){show(k)})});
-  prev.addEventListener('click',function(){show(i-1)});
-  next.addEventListener('click',function(){show(i+1)});
   backHome.addEventListener('click',function(){show(0)});
   document.addEventListener('keydown',function(e){
     if(e.target.closest&&e.target.closest('input,textarea,select,[contenteditable]'))return;
